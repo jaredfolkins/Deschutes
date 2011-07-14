@@ -1,0 +1,6 @@
+source 'http://rubygems.org'
+gem 'mechanize','2.0.1'
+gem 'nokogiri', '1.5.0'
+gem 'activerecord', '3.0.9'
+gem 'logger', '1.2.8'
+gem 'rspec'

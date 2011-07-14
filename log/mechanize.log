@@ -1,0 +1,1165 @@
+# Logfile created on 2011-07-14 13:22:21 -0700 by logger.rb/1.2.8
+I, [2011-07-14T13:22:21.528229 #72528]  INFO -- : Net::HTTP::Get: /Login.asp
+D, [2011-07-14T13:22:21.528305 #72528] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:22:21.528344 #72528] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:22:21.528379 #72528] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:22:21.528414 #72528] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:22:21.528449 #72528] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:22:21.528484 #72528] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:22:21.528518 #72528] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:22:21.528555 #72528] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:22:21.528589 #72528] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:22:21.554651 #72528]  INFO -- : status: Net::HTTPFound 1.1 302 Object moved
+D, [2011-07-14T13:22:21.554773 #72528] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:21:25 GMT
+D, [2011-07-14T13:22:21.554812 #72528] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:22:21.554846 #72528] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:22:21.554879 #72528] DEBUG -- : response-header: location => showlogin.asp
+D, [2011-07-14T13:22:21.554912 #72528] DEBUG -- : response-header: content-length => 134
+D, [2011-07-14T13:22:21.554945 #72528] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:22:21.554977 #72528] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:22:21.555011 #72528] DEBUG -- : response-header: set-cookie => ASPSESSIONIDCCARDAQB=NDFHDPGDDIDAOPLNHJFALPAJ; path=/
+D, [2011-07-14T13:22:21.555045 #72528] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:22:21.555169 #72528] DEBUG -- : Read 134 bytes (134 total)
+D, [2011-07-14T13:22:21.555643 #72528] DEBUG -- : saved cookie: ASPSESSIONIDCCARDAQB=NDFHDPGDDIDAOPLNHJFALPAJ
+I, [2011-07-14T13:22:21.555746 #72528]  INFO -- : follow redirect to: showlogin.asp
+I, [2011-07-14T13:22:21.556612 #72528]  INFO -- : Net::HTTP::Get: /showlogin.asp
+D, [2011-07-14T13:22:21.556666 #72528] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:22:21.556702 #72528] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:22:21.556737 #72528] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:22:21.556777 #72528] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:22:21.556812 #72528] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:22:21.556846 #72528] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=NDFHDPGDDIDAOPLNHJFALPAJ
+D, [2011-07-14T13:22:21.556881 #72528] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:22:21.556915 #72528] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:22:21.556948 #72528] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:22:21.556981 #72528] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:22:21.581043 #72528]  INFO -- : status: Net::HTTPFound 1.1 302 Object moved
+D, [2011-07-14T13:22:21.581212 #72528] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:21:25 GMT
+D, [2011-07-14T13:22:21.581297 #72528] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:22:21.581370 #72528] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:22:21.581443 #72528] DEBUG -- : response-header: location => Search.asp
+D, [2011-07-14T13:22:21.581553 #72528] DEBUG -- : response-header: content-length => 131
+D, [2011-07-14T13:22:21.581621 #72528] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:22:21.581664 #72528] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:22:21.581705 #72528] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:22:21.581812 #72528] DEBUG -- : Read 131 bytes (131 total)
+I, [2011-07-14T13:22:21.582081 #72528]  INFO -- : follow redirect to: Search.asp
+I, [2011-07-14T13:22:21.582716 #72528]  INFO -- : Net::HTTP::Get: /Search.asp
+D, [2011-07-14T13:22:21.582767 #72528] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:22:21.582804 #72528] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:22:21.582839 #72528] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:22:21.582875 #72528] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:22:21.582909 #72528] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:22:21.582943 #72528] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=NDFHDPGDDIDAOPLNHJFALPAJ
+D, [2011-07-14T13:22:21.582977 #72528] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:22:21.583011 #72528] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:22:21.583045 #72528] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:22:21.583077 #72528] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:22:21.605475 #72528]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:22:21.605644 #72528] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:21:25 GMT
+D, [2011-07-14T13:22:21.605733 #72528] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:22:21.605817 #72528] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:22:21.605865 #72528] DEBUG -- : response-header: content-length => 24878
+D, [2011-07-14T13:22:21.605901 #72528] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:22:21.605935 #72528] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:22:21.605971 #72528] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:22:21.606077 #72528] DEBUG -- : Read 2518 bytes (2518 total)
+D, [2011-07-14T13:22:21.606154 #72528] DEBUG -- : Read 2736 bytes (5254 total)
+D, [2011-07-14T13:22:21.616123 #72528] DEBUG -- : Read 4104 bytes (9358 total)
+D, [2011-07-14T13:22:21.616361 #72528] DEBUG -- : Read 1368 bytes (10726 total)
+D, [2011-07-14T13:22:21.627403 #72528] DEBUG -- : Read 2736 bytes (13462 total)
+D, [2011-07-14T13:22:21.627643 #72528] DEBUG -- : Read 4104 bytes (17566 total)
+D, [2011-07-14T13:22:21.627708 #72528] DEBUG -- : Read 1368 bytes (18934 total)
+D, [2011-07-14T13:22:21.627896 #72528] DEBUG -- : Read 1368 bytes (20302 total)
+D, [2011-07-14T13:22:21.627959 #72528] DEBUG -- : Read 1368 bytes (21670 total)
+D, [2011-07-14T13:22:21.638724 #72528] DEBUG -- : Read 3208 bytes (24878 total)
+I, [2011-07-14T13:22:21.641476 #72528]  INFO -- : Net::HTTP::Get: /Search.asp
+D, [2011-07-14T13:22:21.641558 #72528] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:22:21.641598 #72528] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:22:21.641633 #72528] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:22:21.641666 #72528] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:22:21.641703 #72528] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:22:21.641738 #72528] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=NDFHDPGDDIDAOPLNHJFALPAJ
+D, [2011-07-14T13:22:21.641799 #72528] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:22:21.641834 #72528] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:22:21.641867 #72528] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:22:21.641899 #72528] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:22:21.662802 #72528]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:22:21.662940 #72528] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:21:25 GMT
+D, [2011-07-14T13:22:21.662979 #72528] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:22:21.663014 #72528] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:22:21.663050 #72528] DEBUG -- : response-header: content-length => 24878
+D, [2011-07-14T13:22:21.663084 #72528] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:22:21.663118 #72528] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:22:21.663153 #72528] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:22:21.663254 #72528] DEBUG -- : Read 3886 bytes (3886 total)
+D, [2011-07-14T13:22:21.663379 #72528] DEBUG -- : Read 10944 bytes (14830 total)
+D, [2011-07-14T13:22:21.663441 #72528] DEBUG -- : Read 1368 bytes (16198 total)
+D, [2011-07-14T13:22:21.663609 #72528] DEBUG -- : Read 1368 bytes (17566 total)
+D, [2011-07-14T13:22:21.673370 #72528] DEBUG -- : Read 2736 bytes (20302 total)
+D, [2011-07-14T13:22:21.673675 #72528] DEBUG -- : Read 2736 bytes (23038 total)
+D, [2011-07-14T13:22:21.674915 #72528] DEBUG -- : Read 1840 bytes (24878 total)
+I, [2011-07-14T13:22:21.683450 #72528]  INFO -- : form encoding: US-ASCII
+D, [2011-07-14T13:22:21.684161 #72528] DEBUG -- : query: "dfYear=&dfDocumentStart=&dfDocumentEnd=&dfTitle=&dfRecordingFrom=&dfRecordingTo=&cmbTypeGroups=1&cmbDocumentType=&sIndexList=&dfHistoric=&dfLastName=&dfFirstName=&dfMiddleName=&dfNameSuffix=&dfSubdivision=&dfLegal1=&dfLegal2=&cmbTownship=&cmbRange=&cmbSection=&rbDocTypeOpt=1&rbOrder=1&rbNameType=1"
+I, [2011-07-14T13:22:21.685308 #72528]  INFO -- : Net::HTTP::Post: /search.asp
+D, [2011-07-14T13:22:21.685362 #72528] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:22:21.685400 #72528] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:22:21.685441 #72528] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:22:21.685476 #72528] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:22:21.685509 #72528] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:22:21.685544 #72528] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=NDFHDPGDDIDAOPLNHJFALPAJ
+D, [2011-07-14T13:22:21.685579 #72528] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:22:21.685614 #72528] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:22:21.685648 #72528] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:22:21.685687 #72528] DEBUG -- : request-header: connection => keep-alive
+D, [2011-07-14T13:22:21.685722 #72528] DEBUG -- : request-header: content-type => application/x-www-form-urlencoded
+D, [2011-07-14T13:22:21.685756 #72528] DEBUG -- : request-header: content-length => 298
+I, [2011-07-14T13:22:22.543098 #72528]  INFO -- : status: Net::HTTPFound 1.1 302 Object moved
+D, [2011-07-14T13:22:22.543253 #72528] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:21:26 GMT
+D, [2011-07-14T13:22:22.543293 #72528] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:22:22.543328 #72528] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:22:22.543363 #72528] DEBUG -- : response-header: location => Results.asp?Start=1
+D, [2011-07-14T13:22:22.543761 #72528] DEBUG -- : response-header: content-length => 140
+D, [2011-07-14T13:22:22.543799 #72528] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:22:22.543841 #72528] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:22:22.543878 #72528] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:22:22.543978 #72528] DEBUG -- : Read 140 bytes (140 total)
+I, [2011-07-14T13:22:22.544257 #72528]  INFO -- : follow redirect to: Results.asp?Start=1
+I, [2011-07-14T13:22:22.545530 #72528]  INFO -- : Net::HTTP::Get: /Results.asp?Start=1
+D, [2011-07-14T13:22:22.545592 #72528] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:22:22.545629 #72528] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:22:22.545664 #72528] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:22:22.545699 #72528] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:22:22.545734 #72528] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:22:22.545774 #72528] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=NDFHDPGDDIDAOPLNHJFALPAJ
+D, [2011-07-14T13:22:22.545810 #72528] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:22:22.545844 #72528] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:22:22.545878 #72528] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:22:22.545912 #72528] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:22:23.912689 #72528]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:22:23.912818 #72528] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:21:27 GMT
+D, [2011-07-14T13:22:23.912857 #72528] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:22:23.912893 #72528] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:22:23.912929 #72528] DEBUG -- : response-header: content-length => 82980
+D, [2011-07-14T13:22:23.912962 #72528] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:22:23.913006 #72528] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:22:23.913042 #72528] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:22:23.913168 #72528] DEBUG -- : Read 6622 bytes (6622 total)
+D, [2011-07-14T13:22:23.913300 #72528] DEBUG -- : Read 12312 bytes (18934 total)
+D, [2011-07-14T13:22:23.913365 #72528] DEBUG -- : Read 1368 bytes (20302 total)
+D, [2011-07-14T13:22:23.913525 #72528] DEBUG -- : Read 1368 bytes (21670 total)
+D, [2011-07-14T13:22:23.913599 #72528] DEBUG -- : Read 1368 bytes (23038 total)
+D, [2011-07-14T13:22:23.913726 #72528] DEBUG -- : Read 1368 bytes (24406 total)
+D, [2011-07-14T13:22:23.926829 #72528] DEBUG -- : Read 1368 bytes (25774 total)
+D, [2011-07-14T13:22:23.926996 #72528] DEBUG -- : Read 1368 bytes (27142 total)
+D, [2011-07-14T13:22:23.934217 #72528] DEBUG -- : Read 16384 bytes (43526 total)
+D, [2011-07-14T13:22:23.934506 #72528] DEBUG -- : Read 16384 bytes (59910 total)
+D, [2011-07-14T13:22:23.934594 #72528] DEBUG -- : Read 9640 bytes (69550 total)
+D, [2011-07-14T13:22:23.935224 #72528] DEBUG -- : Read 1368 bytes (70918 total)
+D, [2011-07-14T13:22:23.935426 #72528] DEBUG -- : Read 1368 bytes (72286 total)
+D, [2011-07-14T13:22:23.936431 #72528] DEBUG -- : Read 1368 bytes (73654 total)
+D, [2011-07-14T13:22:23.936555 #72528] DEBUG -- : Read 4104 bytes (77758 total)
+D, [2011-07-14T13:22:23.936853 #72528] DEBUG -- : Read 4104 bytes (81862 total)
+D, [2011-07-14T13:22:23.936928 #72528] DEBUG -- : Read 1118 bytes (82980 total)
+I, [2011-07-14T13:22:23.984184 #72528]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1693109
+D, [2011-07-14T13:22:23.984278 #72528] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:22:23.984351 #72528] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:22:23.984403 #72528] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:22:23.984440 #72528] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:22:23.984474 #72528] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:22:23.984508 #72528] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=NDFHDPGDDIDAOPLNHJFALPAJ
+D, [2011-07-14T13:22:23.984542 #72528] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:22:23.984576 #72528] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:22:23.984611 #72528] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:22:23.984648 #72528] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:22:24.213954 #72528]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:22:24.214126 #72528] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:21:28 GMT
+D, [2011-07-14T13:22:24.214215 #72528] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:22:24.214296 #72528] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:22:24.214370 #72528] DEBUG -- : response-header: content-length => 7123
+D, [2011-07-14T13:22:24.214446 #72528] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:22:24.214493 #72528] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:22:24.214531 #72528] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:22:24.214641 #72528] DEBUG -- : Read 3887 bytes (3887 total)
+D, [2011-07-14T13:22:24.214723 #72528] DEBUG -- : Read 3236 bytes (7123 total)
+I, [2011-07-14T13:22:24.233492 #72528]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1066833
+D, [2011-07-14T13:22:24.233612 #72528] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:22:24.233651 #72528] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:22:24.233687 #72528] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:22:24.233722 #72528] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:22:24.233757 #72528] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:22:24.233792 #72528] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=NDFHDPGDDIDAOPLNHJFALPAJ
+D, [2011-07-14T13:22:24.233827 #72528] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:22:24.233862 #72528] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:22:24.233897 #72528] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:22:24.233931 #72528] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:22:24.465075 #72528]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:22:24.465219 #72528] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:21:28 GMT
+D, [2011-07-14T13:22:24.465259 #72528] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:22:24.465294 #72528] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:22:24.465329 #72528] DEBUG -- : response-header: content-length => 7990
+D, [2011-07-14T13:22:24.465362 #72528] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:22:24.465397 #72528] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:22:24.465430 #72528] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:22:24.465526 #72528] DEBUG -- : Read 5255 bytes (5255 total)
+D, [2011-07-14T13:22:24.465602 #72528] DEBUG -- : Read 2735 bytes (7990 total)
+I, [2011-07-14T13:22:24.475444 #72528]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1693106
+D, [2011-07-14T13:22:24.475532 #72528] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:22:24.475571 #72528] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:22:24.475606 #72528] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:22:24.475639 #72528] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:22:24.475673 #72528] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:22:24.475707 #72528] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=NDFHDPGDDIDAOPLNHJFALPAJ
+D, [2011-07-14T13:22:24.475741 #72528] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:22:24.475775 #72528] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:22:24.475809 #72528] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:22:24.475842 #72528] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:22:24.637950 #72528]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:22:24.638073 #72528] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:21:28 GMT
+D, [2011-07-14T13:22:24.638112 #72528] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:22:24.638149 #72528] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:22:24.638183 #72528] DEBUG -- : response-header: content-length => 7342
+D, [2011-07-14T13:22:24.638215 #72528] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:22:24.638254 #72528] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:22:24.638290 #72528] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:22:24.638394 #72528] DEBUG -- : Read 5255 bytes (5255 total)
+D, [2011-07-14T13:22:24.638453 #72528] DEBUG -- : Read 2087 bytes (7342 total)
+I, [2011-07-14T13:22:24.647157 #72528]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1459381
+D, [2011-07-14T13:22:24.647241 #72528] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:22:24.647284 #72528] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:22:24.647320 #72528] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:22:24.647355 #72528] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:22:24.647388 #72528] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:22:24.647422 #72528] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=NDFHDPGDDIDAOPLNHJFALPAJ
+D, [2011-07-14T13:22:24.647456 #72528] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:22:24.647493 #72528] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:22:24.647527 #72528] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:22:24.647560 #72528] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:22:24.848452 #72528]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:22:24.848584 #72528] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:21:28 GMT
+D, [2011-07-14T13:22:24.848624 #72528] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:22:24.848658 #72528] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:22:24.848691 #72528] DEBUG -- : response-header: content-length => 7986
+D, [2011-07-14T13:22:24.848724 #72528] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:22:24.848758 #72528] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:22:24.848791 #72528] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:22:24.848930 #72528] DEBUG -- : Read 3887 bytes (3887 total)
+D, [2011-07-14T13:22:24.849019 #72528] DEBUG -- : Read 4099 bytes (7986 total)
+I, [2011-07-14T13:22:24.859528 #72528]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1693105
+D, [2011-07-14T13:22:24.859618 #72528] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:22:24.859655 #72528] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:22:24.859690 #72528] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:22:24.859724 #72528] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:22:24.859762 #72528] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:22:24.859797 #72528] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=NDFHDPGDDIDAOPLNHJFALPAJ
+D, [2011-07-14T13:22:24.859835 #72528] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:22:24.859870 #72528] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:22:24.859903 #72528] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:22:24.859935 #72528] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:22:24.998268 #72528]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:22:24.998399 #72528] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:21:28 GMT
+D, [2011-07-14T13:22:24.998438 #72528] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:22:24.998474 #72528] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:22:24.998508 #72528] DEBUG -- : response-header: content-length => 7291
+D, [2011-07-14T13:22:24.998540 #72528] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:22:24.998574 #72528] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:22:24.998607 #72528] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:22:24.998696 #72528] DEBUG -- : Read 3887 bytes (3887 total)
+D, [2011-07-14T13:22:24.998769 #72528] DEBUG -- : Read 3404 bytes (7291 total)
+I, [2011-07-14T13:22:25.007547 #72528]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1459381
+D, [2011-07-14T13:22:25.007637 #72528] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:22:25.007676 #72528] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:22:25.007711 #72528] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:22:25.007744 #72528] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:22:25.007777 #72528] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:22:25.007810 #72528] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=NDFHDPGDDIDAOPLNHJFALPAJ
+D, [2011-07-14T13:22:25.007849 #72528] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:22:25.007883 #72528] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:22:25.007919 #72528] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:22:25.007951 #72528] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:22:25.134196 #72528]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:22:25.134377 #72528] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:21:29 GMT
+D, [2011-07-14T13:22:25.134415 #72528] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:22:25.134448 #72528] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:22:25.134482 #72528] DEBUG -- : response-header: content-length => 7986
+D, [2011-07-14T13:22:25.134514 #72528] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:22:25.134576 #72528] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:22:25.134619 #72528] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:22:25.134714 #72528] DEBUG -- : Read 2519 bytes (2519 total)
+D, [2011-07-14T13:22:25.134813 #72528] DEBUG -- : Read 5467 bytes (7986 total)
+I, [2011-07-14T13:22:25.158636 #72528]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1693116
+D, [2011-07-14T13:22:25.158739 #72528] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:22:25.158783 #72528] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:22:25.158818 #72528] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:22:25.158852 #72528] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:22:25.158885 #72528] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:22:25.158919 #72528] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=NDFHDPGDDIDAOPLNHJFALPAJ
+D, [2011-07-14T13:22:25.158954 #72528] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:22:25.158988 #72528] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:22:25.159022 #72528] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:22:25.159056 #72528] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:22:25.308100 #72528]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:22:25.308244 #72528] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:21:29 GMT
+D, [2011-07-14T13:22:25.308284 #72528] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:22:25.308320 #72528] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:22:25.308357 #72528] DEBUG -- : response-header: content-length => 7535
+D, [2011-07-14T13:22:25.308391 #72528] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:22:25.308427 #72528] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:22:25.308460 #72528] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:22:25.308560 #72528] DEBUG -- : Read 2519 bytes (2519 total)
+D, [2011-07-14T13:22:25.308631 #72528] DEBUG -- : Read 5016 bytes (7535 total)
+I, [2011-07-14T13:22:25.317110 #72528]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1188379
+D, [2011-07-14T13:22:25.317193 #72528] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:22:25.317230 #72528] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:22:25.317264 #72528] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:22:25.317298 #72528] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:22:25.317332 #72528] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:22:25.317365 #72528] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=NDFHDPGDDIDAOPLNHJFALPAJ
+D, [2011-07-14T13:22:25.317399 #72528] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:22:25.317433 #72528] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:22:25.317466 #72528] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:22:25.317499 #72528] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:22:25.528025 #72528]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:22:25.528187 #72528] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:21:29 GMT
+D, [2011-07-14T13:22:25.528229 #72528] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:22:25.528295 #72528] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:22:25.528331 #72528] DEBUG -- : response-header: content-length => 7592
+D, [2011-07-14T13:22:25.528366 #72528] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:22:25.528401 #72528] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:22:25.528434 #72528] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:22:25.528532 #72528] DEBUG -- : Read 2519 bytes (2519 total)
+D, [2011-07-14T13:22:25.528595 #72528] DEBUG -- : Read 5073 bytes (7592 total)
+I, [2011-07-14T13:22:25.537733 #72528]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1693114
+D, [2011-07-14T13:22:25.537813 #72528] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:22:25.537857 #72528] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:22:25.537892 #72528] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:22:25.537928 #72528] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:22:25.537963 #72528] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:22:25.538001 #72528] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=NDFHDPGDDIDAOPLNHJFALPAJ
+D, [2011-07-14T13:22:25.538037 #72528] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:22:25.538072 #72528] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:22:25.538106 #72528] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:22:25.538140 #72528] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:22:25.699109 #72528]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:22:25.699254 #72528] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:21:29 GMT
+D, [2011-07-14T13:22:25.699292 #72528] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:22:25.699325 #72528] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:22:25.699358 #72528] DEBUG -- : response-header: content-length => 7282
+D, [2011-07-14T13:22:25.699391 #72528] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:22:25.699424 #72528] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:22:25.699458 #72528] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:22:25.699552 #72528] DEBUG -- : Read 3887 bytes (3887 total)
+D, [2011-07-14T13:22:25.699613 #72528] DEBUG -- : Read 3395 bytes (7282 total)
+I, [2011-07-14T13:22:25.707785 #72528]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1169847
+D, [2011-07-14T13:22:25.707865 #72528] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:22:25.707909 #72528] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:22:25.707944 #72528] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:22:25.707977 #72528] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:22:25.708012 #72528] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:22:25.708046 #72528] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=NDFHDPGDDIDAOPLNHJFALPAJ
+D, [2011-07-14T13:22:25.708081 #72528] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:22:25.708121 #72528] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:22:25.708154 #72528] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:22:25.708187 #72528] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:22:25.896625 #72528]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:22:25.896794 #72528] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:21:29 GMT
+D, [2011-07-14T13:22:25.896836 #72528] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:22:25.896872 #72528] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:22:25.896907 #72528] DEBUG -- : response-header: content-length => 7338
+D, [2011-07-14T13:22:25.896940 #72528] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:22:25.896974 #72528] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:22:25.897007 #72528] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:22:25.897099 #72528] DEBUG -- : Read 5255 bytes (5255 total)
+D, [2011-07-14T13:22:25.897162 #72528] DEBUG -- : Read 2083 bytes (7338 total)
+I, [2011-07-14T13:22:25.905916 #72528]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1693037
+D, [2011-07-14T13:22:25.906005 #72528] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:22:25.906042 #72528] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:22:25.906076 #72528] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:22:25.906110 #72528] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:22:25.906143 #72528] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:22:25.906177 #72528] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=NDFHDPGDDIDAOPLNHJFALPAJ
+D, [2011-07-14T13:22:25.906220 #72528] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:22:25.906254 #72528] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:22:25.906287 #72528] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:22:25.906320 #72528] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:22:26.116336 #72528]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:22:26.116465 #72528] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:21:30 GMT
+D, [2011-07-14T13:22:26.116504 #72528] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:22:26.116539 #72528] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:22:26.116607 #72528] DEBUG -- : response-header: content-length => 10584
+D, [2011-07-14T13:22:26.116642 #72528] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:22:26.116675 #72528] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:22:26.116708 #72528] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:22:26.116797 #72528] DEBUG -- : Read 5254 bytes (5254 total)
+D, [2011-07-14T13:22:26.116862 #72528] DEBUG -- : Read 5330 bytes (10584 total)
+I, [2011-07-14T13:22:26.144198 #72528]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1043664
+D, [2011-07-14T13:22:26.144306 #72528] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:22:26.144345 #72528] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:22:26.144382 #72528] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:22:26.144416 #72528] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:22:26.144450 #72528] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:22:26.144483 #72528] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=NDFHDPGDDIDAOPLNHJFALPAJ
+D, [2011-07-14T13:22:26.144517 #72528] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:22:26.144550 #72528] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:22:26.144584 #72528] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:22:26.144649 #72528] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:22:26.691306 #72528]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:22:26.691434 #72528] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:21:30 GMT
+D, [2011-07-14T13:22:26.691473 #72528] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:22:26.691510 #72528] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:22:26.691545 #72528] DEBUG -- : response-header: content-length => 11839
+D, [2011-07-14T13:22:26.691579 #72528] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:22:26.691613 #72528] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:22:26.691647 #72528] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:22:26.691738 #72528] DEBUG -- : Read 5254 bytes (5254 total)
+D, [2011-07-14T13:22:26.691799 #72528] DEBUG -- : Read 6585 bytes (11839 total)
+I, [2011-07-14T13:22:26.708712 #72528]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1692952
+D, [2011-07-14T13:22:26.708801 #72528] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:22:26.708841 #72528] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:22:26.708876 #72528] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:22:26.708910 #72528] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:22:26.708944 #72528] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:22:26.708978 #72528] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=NDFHDPGDDIDAOPLNHJFALPAJ
+D, [2011-07-14T13:22:26.709013 #72528] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:22:26.709050 #72528] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:22:26.709089 #72528] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:22:26.709125 #72528] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:22:26.916493 #72528]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:22:26.916669 #72528] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:21:30 GMT
+D, [2011-07-14T13:22:26.916748 #72528] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:22:26.916787 #72528] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:22:26.916821 #72528] DEBUG -- : response-header: content-length => 7485
+D, [2011-07-14T13:22:26.916855 #72528] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:22:26.916889 #72528] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:22:26.916923 #72528] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:22:26.917060 #72528] DEBUG -- : Read 5255 bytes (5255 total)
+D, [2011-07-14T13:22:26.917124 #72528] DEBUG -- : Read 2230 bytes (7485 total)
+I, [2011-07-14T13:22:26.925399 #72528]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1418109
+D, [2011-07-14T13:22:26.925474 #72528] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:22:26.925512 #72528] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:22:26.925546 #72528] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:22:26.925580 #72528] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:22:26.925614 #72528] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:22:26.925650 #72528] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=NDFHDPGDDIDAOPLNHJFALPAJ
+D, [2011-07-14T13:22:26.925685 #72528] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:22:26.925749 #72528] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:22:26.925784 #72528] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:22:26.925816 #72528] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:22:27.214038 #72528]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:22:27.214182 #72528] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:21:31 GMT
+D, [2011-07-14T13:22:27.214222 #72528] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:22:27.214257 #72528] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:22:27.214290 #72528] DEBUG -- : response-header: content-length => 7969
+D, [2011-07-14T13:22:27.214325 #72528] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:22:27.214359 #72528] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:22:27.214392 #72528] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:22:27.214495 #72528] DEBUG -- : Read 3887 bytes (3887 total)
+D, [2011-07-14T13:22:27.214557 #72528] DEBUG -- : Read 4082 bytes (7969 total)
+I, [2011-07-14T13:22:27.224591 #72528]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1692949
+D, [2011-07-14T13:22:27.224674 #72528] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:22:27.224717 #72528] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:22:27.224752 #72528] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:22:27.224787 #72528] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:22:27.224821 #72528] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:22:27.224854 #72528] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=NDFHDPGDDIDAOPLNHJFALPAJ
+D, [2011-07-14T13:22:27.224889 #72528] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:22:27.224926 #72528] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:22:27.224965 #72528] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:22:27.224998 #72528] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:44:43.967054 #73345]  INFO -- : Net::HTTP::Get: /Login.asp
+D, [2011-07-14T13:44:43.967162 #73345] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:44:43.967201 #73345] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:44:43.967236 #73345] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:44:43.967270 #73345] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:44:43.967304 #73345] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:44:43.967338 #73345] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:44:43.967371 #73345] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:44:43.967405 #73345] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:44:43.967438 #73345] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:44:43.993678 #73345]  INFO -- : status: Net::HTTPFound 1.1 302 Object moved
+D, [2011-07-14T13:44:43.993841 #73345] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:43:47 GMT
+D, [2011-07-14T13:44:43.993922 #73345] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:44:43.993998 #73345] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:44:43.994072 #73345] DEBUG -- : response-header: location => showlogin.asp
+D, [2011-07-14T13:44:43.994141 #73345] DEBUG -- : response-header: content-length => 134
+D, [2011-07-14T13:44:43.994257 #73345] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:44:43.994335 #73345] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:44:43.994370 #73345] DEBUG -- : response-header: set-cookie => ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE; path=/
+D, [2011-07-14T13:44:43.994405 #73345] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:44:43.994565 #73345] DEBUG -- : Read 134 bytes (134 total)
+D, [2011-07-14T13:44:43.995070 #73345] DEBUG -- : saved cookie: ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE
+I, [2011-07-14T13:44:43.995180 #73345]  INFO -- : follow redirect to: showlogin.asp
+I, [2011-07-14T13:44:43.996086 #73345]  INFO -- : Net::HTTP::Get: /showlogin.asp
+D, [2011-07-14T13:44:43.996145 #73345] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:44:43.996181 #73345] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:44:43.996215 #73345] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:44:43.996248 #73345] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:44:43.996282 #73345] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:44:43.996315 #73345] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE
+D, [2011-07-14T13:44:43.996350 #73345] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:44:43.996387 #73345] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:44:43.996422 #73345] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:44:43.996454 #73345] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:44:44.014744 #73345]  INFO -- : status: Net::HTTPFound 1.1 302 Object moved
+D, [2011-07-14T13:44:44.014873 #73345] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:43:47 GMT
+D, [2011-07-14T13:44:44.014916 #73345] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:44:44.014952 #73345] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:44:44.014985 #73345] DEBUG -- : response-header: location => Search.asp
+D, [2011-07-14T13:44:44.015019 #73345] DEBUG -- : response-header: content-length => 131
+D, [2011-07-14T13:44:44.015053 #73345] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:44:44.015087 #73345] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:44:44.015119 #73345] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:44:44.015206 #73345] DEBUG -- : Read 131 bytes (131 total)
+I, [2011-07-14T13:44:44.015458 #73345]  INFO -- : follow redirect to: Search.asp
+I, [2011-07-14T13:44:44.016080 #73345]  INFO -- : Net::HTTP::Get: /Search.asp
+D, [2011-07-14T13:44:44.016132 #73345] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:44:44.016168 #73345] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:44:44.016203 #73345] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:44:44.016237 #73345] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:44:44.016271 #73345] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:44:44.016305 #73345] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE
+D, [2011-07-14T13:44:44.016344 #73345] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:44:44.016378 #73345] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:44:44.016480 #73345] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:44:44.016545 #73345] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:44:44.039404 #73345]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:44:44.039533 #73345] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:43:47 GMT
+D, [2011-07-14T13:44:44.039573 #73345] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:44:44.039642 #73345] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:44:44.039681 #73345] DEBUG -- : response-header: content-length => 24878
+D, [2011-07-14T13:44:44.039715 #73345] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:44:44.039749 #73345] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:44:44.039783 #73345] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:44:44.039876 #73345] DEBUG -- : Read 5254 bytes (5254 total)
+D, [2011-07-14T13:44:44.049932 #73345] DEBUG -- : Read 1368 bytes (6622 total)
+D, [2011-07-14T13:44:44.050301 #73345] DEBUG -- : Read 5472 bytes (12094 total)
+D, [2011-07-14T13:44:44.050426 #73345] DEBUG -- : Read 1368 bytes (13462 total)
+D, [2011-07-14T13:44:44.061039 #73345] DEBUG -- : Read 4104 bytes (17566 total)
+D, [2011-07-14T13:44:44.061286 #73345] DEBUG -- : Read 4104 bytes (21670 total)
+D, [2011-07-14T13:44:44.061395 #73345] DEBUG -- : Read 1368 bytes (23038 total)
+D, [2011-07-14T13:44:44.061631 #73345] DEBUG -- : Read 1368 bytes (24406 total)
+D, [2011-07-14T13:44:44.071364 #73345] DEBUG -- : Read 472 bytes (24878 total)
+I, [2011-07-14T13:44:44.074014 #73345]  INFO -- : Net::HTTP::Get: /Search.asp
+D, [2011-07-14T13:44:44.074095 #73345] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:44:44.074132 #73345] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:44:44.074166 #73345] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:44:44.074201 #73345] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:44:44.074235 #73345] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:44:44.074270 #73345] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE
+D, [2011-07-14T13:44:44.074305 #73345] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:44:44.074339 #73345] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:44:44.074378 #73345] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:44:44.074412 #73345] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:44:44.095866 #73345]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:44:44.096028 #73345] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:43:47 GMT
+D, [2011-07-14T13:44:44.096066 #73345] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:44:44.096100 #73345] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:44:44.096134 #73345] DEBUG -- : response-header: content-length => 24878
+D, [2011-07-14T13:44:44.096167 #73345] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:44:44.096201 #73345] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:44:44.096235 #73345] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:44:44.096328 #73345] DEBUG -- : Read 1150 bytes (1150 total)
+D, [2011-07-14T13:44:44.096474 #73345] DEBUG -- : Read 9576 bytes (10726 total)
+D, [2011-07-14T13:44:44.096571 #73345] DEBUG -- : Read 4104 bytes (14830 total)
+D, [2011-07-14T13:44:44.096628 #73345] DEBUG -- : Read 1368 bytes (16198 total)
+D, [2011-07-14T13:44:44.096798 #73345] DEBUG -- : Read 1368 bytes (17566 total)
+D, [2011-07-14T13:44:44.107453 #73345] DEBUG -- : Read 4104 bytes (21670 total)
+D, [2011-07-14T13:44:44.107587 #73345] DEBUG -- : Read 1368 bytes (23038 total)
+D, [2011-07-14T13:44:44.107673 #73345] DEBUG -- : Read 1840 bytes (24878 total)
+I, [2011-07-14T13:44:44.116075 #73345]  INFO -- : form encoding: US-ASCII
+D, [2011-07-14T13:44:44.116822 #73345] DEBUG -- : query: "dfYear=&dfDocumentStart=&dfDocumentEnd=&dfTitle=&dfRecordingFrom=&dfRecordingTo=&cmbTypeGroups=1&cmbDocumentType=&sIndexList=&dfHistoric=&dfLastName=&dfFirstName=&dfMiddleName=&dfNameSuffix=&dfSubdivision=&dfLegal1=&dfLegal2=&cmbTownship=&cmbRange=&cmbSection=&rbDocTypeOpt=1&rbOrder=1&rbNameType=1"
+I, [2011-07-14T13:44:44.118016 #73345]  INFO -- : Net::HTTP::Post: /search.asp
+D, [2011-07-14T13:44:44.118075 #73345] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:44:44.118114 #73345] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:44:44.118149 #73345] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:44:44.118190 #73345] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:44:44.118225 #73345] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:44:44.118261 #73345] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE
+D, [2011-07-14T13:44:44.118297 #73345] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:44:44.118333 #73345] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:44:44.118368 #73345] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:44:44.118407 #73345] DEBUG -- : request-header: connection => keep-alive
+D, [2011-07-14T13:44:44.118443 #73345] DEBUG -- : request-header: content-type => application/x-www-form-urlencoded
+D, [2011-07-14T13:44:44.118478 #73345] DEBUG -- : request-header: content-length => 298
+I, [2011-07-14T13:44:45.129001 #73345]  INFO -- : status: Net::HTTPFound 1.1 302 Object moved
+D, [2011-07-14T13:44:45.129173 #73345] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:43:49 GMT
+D, [2011-07-14T13:44:45.129256 #73345] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:44:45.129295 #73345] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:44:45.129328 #73345] DEBUG -- : response-header: location => Results.asp?Start=1
+D, [2011-07-14T13:44:45.129362 #73345] DEBUG -- : response-header: content-length => 140
+D, [2011-07-14T13:44:45.129396 #73345] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:44:45.129431 #73345] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:44:45.129472 #73345] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:44:45.129580 #73345] DEBUG -- : Read 140 bytes (140 total)
+I, [2011-07-14T13:44:45.129864 #73345]  INFO -- : follow redirect to: Results.asp?Start=1
+I, [2011-07-14T13:44:45.131214 #73345]  INFO -- : Net::HTTP::Get: /Results.asp?Start=1
+D, [2011-07-14T13:44:45.131279 #73345] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:44:45.131318 #73345] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:44:45.131354 #73345] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:44:45.131389 #73345] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:44:45.131426 #73345] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:44:45.131461 #73345] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE
+D, [2011-07-14T13:44:45.131504 #73345] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:44:45.131541 #73345] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:44:45.131579 #73345] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:44:45.131644 #73345] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:44:46.403701 #73345]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:44:46.403852 #73345] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:43:50 GMT
+D, [2011-07-14T13:44:46.403890 #73345] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:44:46.403924 #73345] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:44:46.403957 #73345] DEBUG -- : response-header: content-length => 82980
+D, [2011-07-14T13:44:46.403990 #73345] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:44:46.404023 #73345] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:44:46.404057 #73345] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:44:46.404165 #73345] DEBUG -- : Read 3886 bytes (3886 total)
+D, [2011-07-14T13:44:46.404301 #73345] DEBUG -- : Read 16384 bytes (20270 total)
+D, [2011-07-14T13:44:46.404385 #73345] DEBUG -- : Read 16384 bytes (36654 total)
+D, [2011-07-14T13:44:46.404501 #73345] DEBUG -- : Read 16384 bytes (53038 total)
+D, [2011-07-14T13:44:46.404553 #73345] DEBUG -- : Read 1464 bytes (54502 total)
+D, [2011-07-14T13:44:46.412245 #73345] DEBUG -- : Read 4104 bytes (58606 total)
+D, [2011-07-14T13:44:46.412514 #73345] DEBUG -- : Read 4104 bytes (62710 total)
+D, [2011-07-14T13:44:46.412631 #73345] DEBUG -- : Read 1368 bytes (64078 total)
+D, [2011-07-14T13:44:46.412822 #73345] DEBUG -- : Read 1368 bytes (65446 total)
+D, [2011-07-14T13:44:46.412940 #73345] DEBUG -- : Read 2736 bytes (68182 total)
+D, [2011-07-14T13:44:46.415296 #73345] DEBUG -- : Read 4104 bytes (72286 total)
+D, [2011-07-14T13:44:46.415554 #73345] DEBUG -- : Read 4104 bytes (76390 total)
+D, [2011-07-14T13:44:46.415651 #73345] DEBUG -- : Read 1368 bytes (77758 total)
+D, [2011-07-14T13:44:46.415713 #73345] DEBUG -- : Read 1368 bytes (79126 total)
+D, [2011-07-14T13:44:46.415892 #73345] DEBUG -- : Read 1368 bytes (80494 total)
+D, [2011-07-14T13:44:46.415959 #73345] DEBUG -- : Read 1368 bytes (81862 total)
+D, [2011-07-14T13:44:46.416236 #73345] DEBUG -- : Read 1118 bytes (82980 total)
+I, [2011-07-14T13:44:46.465017 #73345]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1693109
+D, [2011-07-14T13:44:46.465117 #73345] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:44:46.465156 #73345] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:44:46.465191 #73345] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:44:46.465224 #73345] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:44:46.465258 #73345] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:44:46.465292 #73345] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE
+D, [2011-07-14T13:44:46.465326 #73345] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:44:46.465359 #73345] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:44:46.465392 #73345] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:44:46.465424 #73345] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:44:46.603732 #73345]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:44:46.603880 #73345] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:43:50 GMT
+D, [2011-07-14T13:44:46.603919 #73345] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:44:46.603953 #73345] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:44:46.603986 #73345] DEBUG -- : response-header: content-length => 7123
+D, [2011-07-14T13:44:46.604022 #73345] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:44:46.604056 #73345] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:44:46.604118 #73345] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:44:46.604226 #73345] DEBUG -- : Read 5255 bytes (5255 total)
+D, [2011-07-14T13:44:46.604294 #73345] DEBUG -- : Read 1868 bytes (7123 total)
+I, [2011-07-14T13:44:46.622753 #73345]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1066833
+D, [2011-07-14T13:44:46.622864 #73345] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:44:46.622901 #73345] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:44:46.622935 #73345] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:44:46.622968 #73345] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:44:46.623002 #73345] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:44:46.623034 #73345] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE
+D, [2011-07-14T13:44:46.623068 #73345] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:44:46.623101 #73345] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:44:46.623136 #73345] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:44:46.623170 #73345] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:44:46.791282 #73345]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:44:46.791413 #73345] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:43:50 GMT
+D, [2011-07-14T13:44:46.791449 #73345] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:44:46.791483 #73345] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:44:46.791516 #73345] DEBUG -- : response-header: content-length => 7990
+D, [2011-07-14T13:44:46.791548 #73345] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:44:46.791582 #73345] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:44:46.791615 #73345] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:44:46.791706 #73345] DEBUG -- : Read 3887 bytes (3887 total)
+D, [2011-07-14T13:44:46.791769 #73345] DEBUG -- : Read 4103 bytes (7990 total)
+I, [2011-07-14T13:44:46.801657 #73345]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1693106
+D, [2011-07-14T13:44:46.801747 #73345] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:44:46.801787 #73345] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:44:46.801824 #73345] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:44:46.801859 #73345] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:44:46.801893 #73345] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:44:46.801937 #73345] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE
+D, [2011-07-14T13:44:46.801975 #73345] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:44:46.802009 #73345] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:44:46.802043 #73345] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:44:46.802079 #73345] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:44:46.942334 #73345]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:44:46.942467 #73345] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:43:50 GMT
+D, [2011-07-14T13:44:46.942505 #73345] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:44:46.942541 #73345] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:44:46.942574 #73345] DEBUG -- : response-header: content-length => 7342
+D, [2011-07-14T13:44:46.942647 #73345] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:44:46.942682 #73345] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:44:46.942716 #73345] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:44:46.942816 #73345] DEBUG -- : Read 2519 bytes (2519 total)
+D, [2011-07-14T13:44:46.942880 #73345] DEBUG -- : Read 4823 bytes (7342 total)
+I, [2011-07-14T13:44:46.951502 #73345]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1459381
+D, [2011-07-14T13:44:46.951583 #73345] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:44:46.951619 #73345] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:44:46.951657 #73345] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:44:46.951692 #73345] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:44:46.951726 #73345] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:44:46.951769 #73345] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE
+D, [2011-07-14T13:44:46.951803 #73345] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:44:46.951837 #73345] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:44:46.951869 #73345] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:44:46.951901 #73345] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:44:47.081804 #73345]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:44:47.081935 #73345] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:43:50 GMT
+D, [2011-07-14T13:44:47.081973 #73345] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:44:47.082007 #73345] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:44:47.082040 #73345] DEBUG -- : response-header: content-length => 7986
+D, [2011-07-14T13:44:47.082073 #73345] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:44:47.082107 #73345] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:44:47.082140 #73345] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:44:47.082226 #73345] DEBUG -- : Read 3887 bytes (3887 total)
+D, [2011-07-14T13:44:47.082319 #73345] DEBUG -- : Read 4099 bytes (7986 total)
+I, [2011-07-14T13:44:47.092564 #73345]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1693105
+D, [2011-07-14T13:44:47.092648 #73345] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:44:47.092684 #73345] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:44:47.092718 #73345] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:44:47.092756 #73345] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:44:47.092791 #73345] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:44:47.092825 #73345] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE
+D, [2011-07-14T13:44:47.092858 #73345] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:44:47.092892 #73345] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:44:47.092926 #73345] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:44:47.092958 #73345] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:44:47.233837 #73345]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:44:47.234005 #73345] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:43:51 GMT
+D, [2011-07-14T13:44:47.234092 #73345] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:44:47.234199 #73345] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:44:47.234236 #73345] DEBUG -- : response-header: content-length => 7291
+D, [2011-07-14T13:44:47.234269 #73345] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:44:47.234304 #73345] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:44:47.234337 #73345] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:44:47.234472 #73345] DEBUG -- : Read 3887 bytes (3887 total)
+D, [2011-07-14T13:44:47.234563 #73345] DEBUG -- : Read 3404 bytes (7291 total)
+I, [2011-07-14T13:44:47.243145 #73345]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1459381
+D, [2011-07-14T13:44:47.243224 #73345] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:44:47.243261 #73345] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:44:47.243302 #73345] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:44:47.243342 #73345] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:44:47.243375 #73345] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:44:47.243409 #73345] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE
+D, [2011-07-14T13:44:47.243442 #73345] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:44:47.243475 #73345] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:44:47.243514 #73345] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:44:47.243546 #73345] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:44:47.377942 #73345]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:44:47.378075 #73345] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:43:51 GMT
+D, [2011-07-14T13:44:47.378130 #73345] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:44:47.378166 #73345] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:44:47.378199 #73345] DEBUG -- : response-header: content-length => 7986
+D, [2011-07-14T13:44:47.378232 #73345] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:44:47.378265 #73345] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:44:47.378298 #73345] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:44:47.378420 #73345] DEBUG -- : Read 3887 bytes (3887 total)
+D, [2011-07-14T13:44:47.378511 #73345] DEBUG -- : Read 4099 bytes (7986 total)
+I, [2011-07-14T13:44:47.401759 #73345]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1693116
+D, [2011-07-14T13:44:47.401859 #73345] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:44:47.401898 #73345] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:44:47.401933 #73345] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:44:47.401969 #73345] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:44:47.402005 #73345] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:44:47.402041 #73345] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE
+D, [2011-07-14T13:44:47.402076 #73345] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:44:47.402110 #73345] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:44:47.402144 #73345] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:44:47.402177 #73345] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:44:47.540874 #73345]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:44:47.541023 #73345] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:43:51 GMT
+D, [2011-07-14T13:44:47.541061 #73345] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:44:47.541098 #73345] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:44:47.541135 #73345] DEBUG -- : response-header: content-length => 7535
+D, [2011-07-14T13:44:47.541169 #73345] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:44:47.541203 #73345] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:44:47.541236 #73345] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:44:47.541332 #73345] DEBUG -- : Read 2519 bytes (2519 total)
+D, [2011-07-14T13:44:47.541392 #73345] DEBUG -- : Read 5016 bytes (7535 total)
+I, [2011-07-14T13:44:47.549775 #73345]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1188379
+D, [2011-07-14T13:44:47.549856 #73345] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:44:47.549892 #73345] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:44:47.549926 #73345] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:44:47.549960 #73345] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:44:47.549992 #73345] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:44:47.550025 #73345] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE
+D, [2011-07-14T13:44:47.550059 #73345] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:44:47.550093 #73345] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:44:47.550125 #73345] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:44:47.550159 #73345] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:44:47.706180 #73345]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:44:47.706306 #73345] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:43:51 GMT
+D, [2011-07-14T13:44:47.706348 #73345] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:44:47.706383 #73345] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:44:47.706416 #73345] DEBUG -- : response-header: content-length => 7592
+D, [2011-07-14T13:44:47.706449 #73345] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:44:47.706483 #73345] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:44:47.706515 #73345] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:44:47.706617 #73345] DEBUG -- : Read 2519 bytes (2519 total)
+D, [2011-07-14T13:44:47.706676 #73345] DEBUG -- : Read 5073 bytes (7592 total)
+I, [2011-07-14T13:44:47.715978 #73345]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1693114
+D, [2011-07-14T13:44:47.716069 #73345] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:44:47.716106 #73345] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:44:47.716141 #73345] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:44:47.716174 #73345] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:44:47.716214 #73345] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:44:47.716249 #73345] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE
+D, [2011-07-14T13:44:47.716282 #73345] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:44:47.716316 #73345] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:44:47.716379 #73345] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:44:47.716413 #73345] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:44:47.853016 #73345]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:44:47.853147 #73345] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:43:51 GMT
+D, [2011-07-14T13:44:47.853187 #73345] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:44:47.853221 #73345] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:44:47.853254 #73345] DEBUG -- : response-header: content-length => 7282
+D, [2011-07-14T13:44:47.853287 #73345] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:44:47.853320 #73345] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:44:47.853353 #73345] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:44:47.853444 #73345] DEBUG -- : Read 3887 bytes (3887 total)
+D, [2011-07-14T13:44:47.853507 #73345] DEBUG -- : Read 3395 bytes (7282 total)
+I, [2011-07-14T13:44:47.861348 #73345]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1169847
+D, [2011-07-14T13:44:47.861430 #73345] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:44:47.861469 #73345] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:44:47.861503 #73345] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:44:47.861537 #73345] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:44:47.861571 #73345] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:44:47.861604 #73345] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE
+D, [2011-07-14T13:44:47.861642 #73345] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:44:47.861676 #73345] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:44:47.861709 #73345] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:44:47.861742 #73345] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:44:48.019270 #73345]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:44:48.019392 #73345] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:43:51 GMT
+D, [2011-07-14T13:44:48.019428 #73345] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:44:48.019461 #73345] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:44:48.019495 #73345] DEBUG -- : response-header: content-length => 7338
+D, [2011-07-14T13:44:48.019528 #73345] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:44:48.019561 #73345] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:44:48.019598 #73345] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:44:48.019686 #73345] DEBUG -- : Read 3887 bytes (3887 total)
+D, [2011-07-14T13:44:48.019780 #73345] DEBUG -- : Read 3451 bytes (7338 total)
+I, [2011-07-14T13:44:48.028547 #73345]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1693037
+D, [2011-07-14T13:44:48.028631 #73345] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:44:48.028668 #73345] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:44:48.028702 #73345] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:44:48.028742 #73345] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:44:48.028775 #73345] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:44:48.028808 #73345] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE
+D, [2011-07-14T13:44:48.028872 #73345] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:44:48.028906 #73345] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:44:48.028939 #73345] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:44:48.028974 #73345] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:44:48.174955 #73345]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:44:48.175080 #73345] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:43:52 GMT
+D, [2011-07-14T13:44:48.175119 #73345] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:44:48.175163 #73345] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:44:48.175196 #73345] DEBUG -- : response-header: content-length => 10584
+D, [2011-07-14T13:44:48.175229 #73345] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:44:48.175262 #73345] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:44:48.175296 #73345] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:44:48.175382 #73345] DEBUG -- : Read 2518 bytes (2518 total)
+D, [2011-07-14T13:44:48.175443 #73345] DEBUG -- : Read 8066 bytes (10584 total)
+I, [2011-07-14T13:44:48.202260 #73345]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1043664
+D, [2011-07-14T13:44:48.202373 #73345] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:44:48.202411 #73345] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:44:48.202446 #73345] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:44:48.202480 #73345] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:44:48.202513 #73345] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:44:48.202546 #73345] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE
+D, [2011-07-14T13:44:48.202583 #73345] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:44:48.202618 #73345] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:44:48.202650 #73345] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:44:48.202683 #73345] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:44:48.478993 #73345]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:44:48.479146 #73345] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:43:52 GMT
+D, [2011-07-14T13:44:48.479187 #73345] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:44:48.479222 #73345] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:44:48.479257 #73345] DEBUG -- : response-header: content-length => 11839
+D, [2011-07-14T13:44:48.479292 #73345] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:44:48.479328 #73345] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:44:48.479362 #73345] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:44:48.479468 #73345] DEBUG -- : Read 5254 bytes (5254 total)
+D, [2011-07-14T13:44:48.479537 #73345] DEBUG -- : Read 6585 bytes (11839 total)
+I, [2011-07-14T13:44:48.495888 #73345]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1692952
+D, [2011-07-14T13:44:48.495975 #73345] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:44:48.496012 #73345] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:44:48.496052 #73345] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:44:48.496086 #73345] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:44:48.496150 #73345] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:44:48.496184 #73345] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE
+D, [2011-07-14T13:44:48.496218 #73345] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:44:48.496252 #73345] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:44:48.496285 #73345] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:44:48.496324 #73345] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:44:48.641149 #73345]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:44:48.641277 #73345] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:43:52 GMT
+D, [2011-07-14T13:44:48.641328 #73345] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:44:48.641362 #73345] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:44:48.641395 #73345] DEBUG -- : response-header: content-length => 7485
+D, [2011-07-14T13:44:48.641427 #73345] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:44:48.641461 #73345] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:44:48.641495 #73345] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:44:48.641583 #73345] DEBUG -- : Read 2519 bytes (2519 total)
+D, [2011-07-14T13:44:48.641646 #73345] DEBUG -- : Read 4966 bytes (7485 total)
+I, [2011-07-14T13:44:48.650356 #73345]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1418109
+D, [2011-07-14T13:44:48.650444 #73345] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:44:48.650481 #73345] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:44:48.650521 #73345] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:44:48.650555 #73345] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:44:48.650589 #73345] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:44:48.650627 #73345] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE
+D, [2011-07-14T13:44:48.650662 #73345] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:44:48.650697 #73345] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:44:48.650731 #73345] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:44:48.650770 #73345] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:44:48.824788 #73345]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:44:48.824912 #73345] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:43:52 GMT
+D, [2011-07-14T13:44:48.824950 #73345] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:44:48.824984 #73345] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:44:48.825018 #73345] DEBUG -- : response-header: content-length => 7969
+D, [2011-07-14T13:44:48.825051 #73345] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:44:48.825084 #73345] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:44:48.825116 #73345] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:44:48.825206 #73345] DEBUG -- : Read 5255 bytes (5255 total)
+D, [2011-07-14T13:44:48.825268 #73345] DEBUG -- : Read 2714 bytes (7969 total)
+I, [2011-07-14T13:44:48.848572 #73345]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1692949
+D, [2011-07-14T13:44:48.848676 #73345] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:44:48.848717 #73345] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:44:48.848784 #73345] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:44:48.848820 #73345] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:44:48.848854 #73345] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:44:48.848889 #73345] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE
+D, [2011-07-14T13:44:48.848923 #73345] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:44:48.848957 #73345] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:44:48.848991 #73345] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:44:48.849030 #73345] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:44:48.998262 #73345]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:44:48.998435 #73345] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:43:52 GMT
+D, [2011-07-14T13:44:48.998521 #73345] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:44:48.998599 #73345] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:44:48.998672 #73345] DEBUG -- : response-header: content-length => 7491
+D, [2011-07-14T13:44:48.998745 #73345] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:44:48.998821 #73345] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:44:48.998895 #73345] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:44:48.999062 #73345] DEBUG -- : Read 7491 bytes (7491 total)
+I, [2011-07-14T13:44:49.007520 #73345]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1167595
+D, [2011-07-14T13:44:49.007607 #73345] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:44:49.007644 #73345] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:44:49.007679 #73345] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:44:49.007715 #73345] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:44:49.007748 #73345] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:44:49.007781 #73345] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE
+D, [2011-07-14T13:44:49.007815 #73345] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:44:49.007849 #73345] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:44:49.007887 #73345] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:44:49.007920 #73345] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:44:49.328248 #73345]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:44:49.328384 #73345] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:43:53 GMT
+D, [2011-07-14T13:44:49.328422 #73345] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:44:49.328456 #73345] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:44:49.328489 #73345] DEBUG -- : response-header: content-length => 8528
+D, [2011-07-14T13:44:49.328521 #73345] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:44:49.328555 #73345] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:44:49.328588 #73345] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:44:49.328678 #73345] DEBUG -- : Read 5255 bytes (5255 total)
+D, [2011-07-14T13:44:49.328734 #73345] DEBUG -- : Read 3273 bytes (8528 total)
+I, [2011-07-14T13:44:49.340109 #73345]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1692948
+D, [2011-07-14T13:44:49.340203 #73345] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:44:49.340242 #73345] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:44:49.340306 #73345] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:44:49.340341 #73345] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:44:49.340375 #73345] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:44:49.340408 #73345] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE
+D, [2011-07-14T13:44:49.340442 #73345] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:44:49.340481 #73345] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:44:49.340515 #73345] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:44:49.340547 #73345] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:44:49.527429 #73345]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:44:49.527571 #73345] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:43:53 GMT
+D, [2011-07-14T13:44:49.527609 #73345] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:44:49.527648 #73345] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:44:49.527683 #73345] DEBUG -- : response-header: content-length => 7458
+D, [2011-07-14T13:44:49.527716 #73345] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:44:49.527750 #73345] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:44:49.527783 #73345] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:44:49.527887 #73345] DEBUG -- : Read 3887 bytes (3887 total)
+D, [2011-07-14T13:44:49.527951 #73345] DEBUG -- : Read 3571 bytes (7458 total)
+I, [2011-07-14T13:44:49.536723 #73345]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1068675
+D, [2011-07-14T13:44:49.536811 #73345] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:44:49.536848 #73345] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:44:49.536883 #73345] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:44:49.536917 #73345] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:44:49.536951 #73345] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:44:49.536984 #73345] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE
+D, [2011-07-14T13:44:49.537019 #73345] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:44:49.537062 #73345] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:44:49.537096 #73345] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:44:49.537129 #73345] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:44:49.776557 #73345]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:44:49.776703 #73345] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:43:53 GMT
+D, [2011-07-14T13:44:49.776741 #73345] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:44:49.776774 #73345] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:44:49.776807 #73345] DEBUG -- : response-header: content-length => 7948
+D, [2011-07-14T13:44:49.776840 #73345] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:44:49.776874 #73345] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:44:49.776907 #73345] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:44:49.777007 #73345] DEBUG -- : Read 2519 bytes (2519 total)
+D, [2011-07-14T13:44:49.777102 #73345] DEBUG -- : Read 5429 bytes (7948 total)
+I, [2011-07-14T13:44:49.787005 #73345]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1692947
+D, [2011-07-14T13:44:49.787123 #73345] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:44:49.787167 #73345] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:44:49.787202 #73345] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:44:49.787235 #73345] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:44:49.787274 #73345] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:44:49.787307 #73345] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE
+D, [2011-07-14T13:44:49.787341 #73345] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:44:49.787380 #73345] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:44:49.787414 #73345] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:44:49.787448 #73345] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:44:49.970507 #73345]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:44:49.970656 #73345] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:43:53 GMT
+D, [2011-07-14T13:44:49.970696 #73345] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:44:49.970731 #73345] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:44:49.970765 #73345] DEBUG -- : response-header: content-length => 7316
+D, [2011-07-14T13:44:49.970799 #73345] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:44:49.970834 #73345] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:44:49.970868 #73345] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:44:49.970992 #73345] DEBUG -- : Read 3887 bytes (3887 total)
+D, [2011-07-14T13:44:49.971073 #73345] DEBUG -- : Read 3429 bytes (7316 total)
+I, [2011-07-14T13:44:49.994117 #73345]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1224330
+D, [2011-07-14T13:44:49.994231 #73345] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:44:49.994269 #73345] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:44:49.994304 #73345] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:44:49.994337 #73345] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:44:49.994371 #73345] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:44:49.994405 #73345] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE
+D, [2011-07-14T13:44:49.994439 #73345] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:44:49.994472 #73345] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:44:49.994505 #73345] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:44:49.994539 #73345] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:44:50.251890 #73345]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:44:50.252058 #73345] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:43:54 GMT
+D, [2011-07-14T13:44:50.252141 #73345] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:44:50.252211 #73345] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:44:50.252281 #73345] DEBUG -- : response-header: content-length => 7799
+D, [2011-07-14T13:44:50.252345 #73345] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:44:50.252383 #73345] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:44:50.252417 #73345] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:44:50.252562 #73345] DEBUG -- : Read 3887 bytes (3887 total)
+D, [2011-07-14T13:44:50.252630 #73345] DEBUG -- : Read 3912 bytes (7799 total)
+I, [2011-07-14T13:44:50.261865 #73345]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1692936
+D, [2011-07-14T13:44:50.261962 #73345] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:44:50.262001 #73345] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:44:50.262041 #73345] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:44:50.262076 #73345] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:44:50.262110 #73345] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:44:50.262145 #73345] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE
+D, [2011-07-14T13:44:50.262181 #73345] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:44:50.262220 #73345] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:44:50.262256 #73345] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:44:50.262290 #73345] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:44:50.415690 #73345]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:44:50.415859 #73345] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:43:54 GMT
+D, [2011-07-14T13:44:50.415941 #73345] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:44:50.416014 #73345] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:44:50.416083 #73345] DEBUG -- : response-header: content-length => 7136
+D, [2011-07-14T13:44:50.416129 #73345] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:44:50.416169 #73345] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:44:50.416203 #73345] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:44:50.416309 #73345] DEBUG -- : Read 3887 bytes (3887 total)
+D, [2011-07-14T13:44:50.416375 #73345] DEBUG -- : Read 3249 bytes (7136 total)
+I, [2011-07-14T13:44:50.424026 #73345]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1221409
+D, [2011-07-14T13:44:50.424113 #73345] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:44:50.424151 #73345] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:44:50.424184 #73345] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:44:50.424218 #73345] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:44:50.424251 #73345] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:44:50.424284 #73345] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE
+D, [2011-07-14T13:44:50.424319 #73345] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:44:50.424352 #73345] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:44:50.424385 #73345] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:44:50.424418 #73345] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:44:50.772144 #73345]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:44:50.772282 #73345] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:43:54 GMT
+D, [2011-07-14T13:44:50.772374 #73345] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:44:50.772409 #73345] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:44:50.772443 #73345] DEBUG -- : response-header: content-length => 8363
+D, [2011-07-14T13:44:50.772476 #73345] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:44:50.772540 #73345] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:44:50.772575 #73345] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:44:50.772690 #73345] DEBUG -- : Read 3887 bytes (3887 total)
+D, [2011-07-14T13:44:50.772763 #73345] DEBUG -- : Read 4476 bytes (8363 total)
+I, [2011-07-14T13:44:50.784064 #73345]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1692935
+D, [2011-07-14T13:44:50.784152 #73345] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:44:50.784195 #73345] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:44:50.784237 #73345] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:44:50.784270 #73345] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:44:50.784303 #73345] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:44:50.784337 #73345] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE
+D, [2011-07-14T13:44:50.784371 #73345] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:44:50.784404 #73345] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:44:50.784443 #73345] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:44:50.784477 #73345] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:44:50.936298 #73345]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:44:50.936437 #73345] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:43:54 GMT
+D, [2011-07-14T13:44:50.936476 #73345] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:44:50.936570 #73345] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:44:50.936604 #73345] DEBUG -- : response-header: content-length => 7306
+D, [2011-07-14T13:44:50.936638 #73345] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:44:50.936674 #73345] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:44:50.936711 #73345] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:44:50.936831 #73345] DEBUG -- : Read 1151 bytes (1151 total)
+D, [2011-07-14T13:44:50.936930 #73345] DEBUG -- : Read 6155 bytes (7306 total)
+I, [2011-07-14T13:44:50.945512 #73345]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1221409
+D, [2011-07-14T13:44:50.945594 #73345] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:44:50.945633 #73345] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:44:50.945668 #73345] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:44:50.945704 #73345] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:44:50.945739 #73345] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:44:50.945774 #73345] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE
+D, [2011-07-14T13:44:50.945815 #73345] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:44:50.945851 #73345] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:44:50.945887 #73345] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:44:50.945922 #73345] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:44:51.102406 #73345]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:44:51.102552 #73345] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:43:55 GMT
+D, [2011-07-14T13:44:51.102592 #73345] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:44:51.102627 #73345] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:44:51.102691 #73345] DEBUG -- : response-header: content-length => 8363
+D, [2011-07-14T13:44:51.102726 #73345] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:44:51.102761 #73345] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:44:51.102840 #73345] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:44:51.102967 #73345] DEBUG -- : Read 5255 bytes (5255 total)
+D, [2011-07-14T13:44:51.103047 #73345] DEBUG -- : Read 3108 bytes (8363 total)
+I, [2011-07-14T13:44:51.128202 #73345]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1692934
+D, [2011-07-14T13:44:51.128306 #73345] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:44:51.128344 #73345] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:44:51.128378 #73345] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:44:51.128417 #73345] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:44:51.128455 #73345] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:44:51.128491 #73345] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE
+D, [2011-07-14T13:44:51.128526 #73345] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:44:51.128562 #73345] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:44:51.128597 #73345] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:44:51.128634 #73345] DEBUG -- : request-header: connection => keep-alive
+I, [2011-07-14T13:44:51.274794 #73345]  INFO -- : status: Net::HTTPOK 1.1 200 OK
+D, [2011-07-14T13:44:51.274919 #73345] DEBUG -- : response-header: date => Thu, 14 Jul 2011 20:43:55 GMT
+D, [2011-07-14T13:44:51.274956 #73345] DEBUG -- : response-header: server => Microsoft-IIS/6.0
+D, [2011-07-14T13:44:51.275001 #73345] DEBUG -- : response-header: x-powered-by => ASP.NET
+D, [2011-07-14T13:44:51.275035 #73345] DEBUG -- : response-header: content-length => 7297
+D, [2011-07-14T13:44:51.275067 #73345] DEBUG -- : response-header: content-type => text/html
+D, [2011-07-14T13:44:51.275100 #73345] DEBUG -- : response-header: expires => Mon, 01 Jan 1996 20:00:00 GMT
+D, [2011-07-14T13:44:51.275134 #73345] DEBUG -- : response-header: cache-control => private
+D, [2011-07-14T13:44:51.275221 #73345] DEBUG -- : Read 2519 bytes (2519 total)
+D, [2011-07-14T13:44:51.275280 #73345] DEBUG -- : Read 4778 bytes (7297 total)
+I, [2011-07-14T13:44:51.283609 #73345]  INFO -- : Net::HTTP::Get: /Detail.asp?INSTRUMENT_ID=1436422
+D, [2011-07-14T13:44:51.283697 #73345] DEBUG -- : request-header: accept => text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+D, [2011-07-14T13:44:51.283741 #73345] DEBUG -- : request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0
+D, [2011-07-14T13:44:51.283779 #73345] DEBUG -- : request-header: accept-encoding => gzip,deflate
+D, [2011-07-14T13:44:51.283813 #73345] DEBUG -- : request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+D, [2011-07-14T13:44:51.283847 #73345] DEBUG -- : request-header: accept-language => en-us,en;q=0.5
+D, [2011-07-14T13:44:51.283881 #73345] DEBUG -- : request-header: cookie => ASPSESSIONIDCCARDAQB=KEFHDPGDPJDINLHGEOOBCCCE
+D, [2011-07-14T13:44:51.283915 #73345] DEBUG -- : request-header: host => recordings.co.deschutes.or.us
+D, [2011-07-14T13:44:51.283949 #73345] DEBUG -- : request-header: referer => http://recordings.co.deschutes.or.us/Search.asp
+D, [2011-07-14T13:44:51.283990 #73345] DEBUG -- : request-header: keep-alive => 115
+D, [2011-07-14T13:44:51.284022 #73345] DEBUG -- : request-header: connection => keep-alive
