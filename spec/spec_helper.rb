@@ -1,1 +1,1 @@
-require '../required.rb'
+require './required'

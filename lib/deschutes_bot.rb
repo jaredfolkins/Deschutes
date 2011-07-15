@@ -15,7 +15,7 @@ class DeschutesBot
   end
 
   def setup_browser
-    @browser = Mechanize.new { |a| a.log = Logger.new("./logs/mechanize.log") }
+    @browser = Mechanize.new { |a| a.log = Logger.new("./log/mechanize.log") }
     @browser.redirect_ok = true
     @browser.user_agent_alias = 'Mac FireFox'
     @browser.request_headers = {
@@ -61,6 +61,7 @@ class DeschutesBot
     page.links_with(:href => /Detail.asp\?INSTRUMENT_ID=\d/).each do | link |
       puts "===========#{link}============"
       document = DeschutesDocument.new(link.click.parser)
+      document.parses
       if document.is_root?
         #TODO
         #document.parse_root
