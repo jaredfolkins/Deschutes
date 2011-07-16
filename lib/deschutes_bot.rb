@@ -59,10 +59,13 @@ class DeschutesBot
 
   def iterate_search_page(page)
     page.links_with(:href => /Detail.asp\?INSTRUMENT_ID=\d/).each do | link |
-      puts "===========#{link}============"
+      puts "BEGIN===========#{link}============"
       document = DeschutesDocument.new(link.click.parser)
-      document.parses
-      if document.is_root?
+      document.parse
+      puts document.id
+      puts document.nokogiri_document.to_s
+      puts "END===========#{link}============"
+      if document.root?
         #TODO
         #document.parse_root
       else

@@ -6,31 +6,44 @@ class DeschutesDocument
   DEAD = 0
 
   attr_accessor :nokogiri_document, :are_referenced, :make_reference, :legal_descriptions, :tables, :root
+  attr_accessor :id, :vol, :page, :pdf
 
   def initialize(document)
-    create_nokogiri_object(document)
+    @nokogiri_document = verify_or_create_nokogiri_document(document)
   end
 
-  def parses
+  def parse
     parse_and_set_tables
     parse_and_set_are_referenced
     parse_and_set_make_reference
+    parse_and_set_id_vol_page
   end
 
-  def create_nokogiri_object(document)
-    if document.kind_of? Nokogiri
-      @nokogiri_document = document.to_s
-    else
-      @nokogiri_document = Nokogiri::HTML(document.to_s)
-    end
+  def verify_or_create_nokogiri_document(document)
+    document.kind_of?(Nokogiri) ? document.to_s :  Nokogiri::HTML(document.to_s)
   end
 
-  def is_root?
+  def root?
     @are_referenced.nil? || @are_referenced.count == 0 ? true : false
   end
 
   def get_root_instrument_id
     @are_referenced.last[:instrument_id]
+  end
+
+  def parse_and_set_id_vol_page
+    unless @tables[:details].nil?
+      regex = /(\d{4})\-(\d+)/m
+      matches = @tables[:details].to_s.match(regex)
+      @vol = matches[1]
+      @page = matches[2]
+      @id = @vol + @page
+    end
+  end
+
+  def parse_and_set_pdf
+    regex = //
+    @pdf
   end
 
   def parse_and_set_are_referenced
