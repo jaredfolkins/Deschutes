@@ -50,45 +50,51 @@ class DeschutesBot
   end
 
   def run_loop
-    while is_next_50_link?(@browser.page) do
+    while next_link?(@browser.page) do
       page = @browser.page
       iterate_search_page(page)
-      next_group_of_50(page)
+      click_next_link(page)
     end
   end
 
   def iterate_search_page(page)
     page.links_with(:href => /Detail.asp\?INSTRUMENT_ID=\d/).each do | link |
-      puts "BEGIN===========#{link}============"
+      puts "===========#{link}============"
       document = DeschutesDocument.new(link.click.parser)
       document.parse
-      crawl_and_save_mortgage(document)
+      deed = get_deed(document)
+      save_deed_and_related_documents(deed)
     end
   end
 
-  def crawl_and_save_mortgage(document)
-      if document.mortgage?
-        #TODO
-        document.parse_mortgage
-      else
-        go_to_page(document.get_mortgage_instrument_id)
-        page = @browser.page.parser
-        mortgage_document = DeschutesDocument.new(page)
-      end
+  def get_deed(document)
+    unless document.deed?
+      document
+    else
+      deed = DeschutesDocument.new go_to_page(document.get_deed_instrument_id)
+      deed.parse
+    end
   end
 
-  def next_group_of_50(page)
-    url = page.parser.to_s.match(/<a href="(Results\.asp\?START=\d+)">Next 50<\/a>/)
+  def save_deed_and_related_documents(deed)
+    puts deed.id unless deed.id.nil?
+    puts deed.are_referenced unless deed.are_referenced.nil?
+    puts deed.make_reference unless deed.make_reference.nil?
+  end
+
+  def click_next_link(page)
+    url = page.parser.to_s.match(/<a href="(Results\.asp\?START=\d+)">Next\s\d+<\/a>/)
     page.link_with(:href => url[1]).click
   end
 
   def go_to_page(instrument_id)
     uri  = HOST + "/Detail.asp?INSTRUMENT_ID=#{instrument_id}"
     @browser.get(uri)
+    @browser.page.parser
   end
 
-  def is_next_50_link?(page)
-    url = page.parser.to_s.match(/<a href="(Results\.asp\?START=\d+)">Next 50<\/a>/)
+  def next_link?(page)
+    url = page.parser.to_s.match(/<a href="(Results\.asp\?START=\d+)">Next\s\d+<\/a>/)
     page.link_with(:href => url[1]) ? true : false
   end
 end

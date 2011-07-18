@@ -32,17 +32,17 @@ describe DeschutesDocument do
     end
   end
 
-  describe "#mortgage?" do
-    it "returns true when document is mortgage" do
+  describe "#deed?" do
+    it "returns true when document is deed" do
       document = DeschutesDocument.new(load_fixture('record_root'))
       document.parse
-      document.should be_mortgage
+      document.should be_deed
     end
 
     it "returns true when document is not mortgage" do
       document = DeschutesDocument.new(load_fixture('record_not_root'))
       document.parse
-      document.should_not be_mortgage
+      document.should_not be_deed
     end
   end
 
@@ -55,7 +55,14 @@ describe DeschutesDocument do
   describe "#parse_and_set_document_type" do
     it "parses the document and sets the document type" do
       @document.parse_and_set_document_type
-      @document.document_type.should_not be_nil
+      @document.type.should_not be_nil
+    end
+  end
+
+  describe "#parse_and_set_document_subtype" do
+    it "parses the document and sets the document subtype" do
+      @document.parse_and_set_document_subtype
+      @document.subtype.should_not be_nil
     end
   end
 end

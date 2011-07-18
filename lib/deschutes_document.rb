@@ -1,12 +1,13 @@
 class DeschutesDocument
 
+
   VERY_HEALTHY = 3
   HEALTHY = 2
   POOR = 1
   DEAD = 0
 
   attr_accessor :nokogiri_document, :are_referenced, :make_reference, :legal_descriptions, :tables, :root
-  attr_accessor :id, :vol, :page, :document_type, :pdf_url
+  attr_accessor :id, :vol, :page, :type, :subtype, :pdf_url
 
   def initialize(document)
     @nokogiri_document = verify_or_create_nokogiri_document(document)
@@ -18,24 +19,29 @@ class DeschutesDocument
     parse_and_set_make_reference
     parse_and_set_id_vol_page
     parse_and_set_document_type
+    self
   end
 
   def parse_and_set_document_type
     regex = /DOCUMENT\sTYPE:<\/b><\/font><\/td>\n<td><font size="2">(.*)<\/font><\/td>/
     matches = @tables[:details].to_s.match(regex)
-    @document_type = matches[1] unless matches.nil?
+    @type = matches[1] unless matches.nil?
   end
 
   def verify_or_create_nokogiri_document(document)
     document.kind_of?(Nokogiri) ? document.to_s :  Nokogiri::HTML(document.to_s)
   end
 
-  def mortgage?
-    @are_referenced.nil? || @are_referenced.count == 0 ? true : false
+  def deed?
+    unless @are_referenced.nil?
+      @are_referenced.last[:document_type].match(/Deed/) ? true : false
+    end
   end
 
-  def get_mortgage_instrument_id
-    @are_referenced.last[:instrument_id]
+  def get_deed_instrument_id
+    if deed?
+      @are_referenced.last[:instrument_id]
+    end
   end
 
   def parse_and_set_id_vol_page
@@ -90,6 +96,10 @@ class DeschutesDocument
         end
       end
       @make_reference << row
+
+      if @make_reference.last[:instrument_id].nil?
+        @make_reference = nil
+      end
     end
   end
 
