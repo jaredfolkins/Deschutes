@@ -62,18 +62,19 @@ class DeschutesBot
       puts "BEGIN===========#{link}============"
       document = DeschutesDocument.new(link.click.parser)
       document.parse
-      puts document.id
-      puts document.nokogiri_document.to_s
-      puts "END===========#{link}============"
-      if document.root?
-        #TODO
-        #document.parse_root
-      else
-        go_to_page(document.get_root_instrument_id)
-        page = @browser.page.parser
-        root_document = DeschutesDocument.new(page)
-      end
+      crawl_and_save_mortgage(document)
     end
+  end
+
+  def crawl_and_save_mortgage(document)
+      if document.mortgage?
+        #TODO
+        document.parse_mortgage
+      else
+        go_to_page(document.get_mortgage_instrument_id)
+        page = @browser.page.parser
+        mortgage_document = DeschutesDocument.new(page)
+      end
   end
 
   def next_group_of_50(page)
