@@ -16,11 +16,23 @@ describe DeschutesDocument do
     end
   end
 
-  describe "#parse_and_set_id_vol_page" do
-    it "should set the document id, vol, and page" do
-      @document.parse_and_set_id_vol_page
+  describe "#parse_and_set_id" do
+    it "should set the document id" do
+      @document.parse_and_set_id
       @document.id.should_not be_nil
+    end
+  end
+
+  describe "#parse_and_set_vol" do
+    it "should set the document vol" do
+      @document.parse_and_set_vol
       @document.vol.should_not be_nil
+    end
+  end
+
+  describe "#parse_and_set_page" do
+    it "should set the document page" do
+      @document.parse_and_set_page
       @document.page.should_not be_nil
     end
   end
@@ -36,13 +48,13 @@ describe DeschutesDocument do
     it "returns true when document is deed" do
       document = DeschutesDocument.new(load_fixture('record_root'))
       document.parse
-      document.should be_deed
+      document.should_not be_deed
     end
 
     it "returns true when document is not mortgage" do
       document = DeschutesDocument.new(load_fixture('record_not_root'))
       document.parse
-      document.should_not be_deed
+      document.should be_deed
     end
   end
 
@@ -52,16 +64,16 @@ describe DeschutesDocument do
     end
   end
 
-  describe "#parse_and_set_document_type" do
+  describe "#parse_and_set_type" do
     it "parses the document and sets the document type" do
-      @document.parse_and_set_document_type
+      @document.parse_and_set_type
       @document.type.should_not be_nil
     end
   end
 
-  describe "#parse_and_set_document_subtype" do
+  describe "#parse_and_set_subtype" do
     it "parses the document and sets the document subtype" do
-      @document.parse_and_set_document_subtype
+      @document.parse_and_set_subtype
       @document.subtype.should_not be_nil
     end
   end
