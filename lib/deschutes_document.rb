@@ -8,24 +8,10 @@ class DeschutesDocument
 
   attr_accessor :nokogiri_document, :are_referenced, :make_reference, :legal_descriptions, :tables, :root
   attr_accessor :id, :vol, :page, :type, :subtype, :pdf_url
+  attr_accessor :first_make_reference
 
   def initialize(document)
     @nokogiri_document = verify_or_create_nokogiri_document(document)
-  end
-
-  def parse
-    parse_and_set_tables
-    parse_and_set_are_referenced
-    parse_and_set_make_reference
-    parse_and_set_id_vol_page
-    parse_and_set_document_type
-    self
-  end
-
-  def parse_and_set_document_type
-    regex = /DOCUMENT\sTYPE:<\/b><\/font><\/td>\n<td><font size="2">(.*)<\/font><\/td>/
-    matches = @tables[:details].to_s.match(regex)
-    @type = matches[1] unless matches.nil?
   end
 
   def verify_or_create_nokogiri_document(document)
@@ -39,18 +25,54 @@ class DeschutesDocument
   end
 
   def get_deed_instrument_id
-    if deed?
-      @are_referenced.last[:instrument_id]
+    @are_referenced.last[:instrument_id] if deed?
+  end
+
+  def parse
+    parse_and_set_tables
+    parse_and_set_are_referenced
+    parse_and_set_make_reference
+    parse_and_set_id
+    parse_and_set_vol
+    parse_and_set_page
+    parse_and_set_type
+    parse_and_set_subtype
+    self
+  end
+
+  def parse_and_set_type
+    regex = /DOCUMENT\sTYPE:<\/b><\/font><\/td>\n<td><font size="2">(.*)<\/font><\/td>/
+    matches = @tables[:details].to_s.match(regex)
+    @type = matches[1] unless matches.nil?
+  end
+
+  def parse_and_set_subtype
+    regex = /DOC\sSUBTYPE:<\/b><\/font><\/td>\n<td><font size="2">(.*)<\/font><\/td>/
+    matches = @tables[:details].to_s.match(regex)
+    @subtype = matches[1] unless matches.nil?
+  end
+
+  def parse_and_set_id
+    unless @tables[:details].nil?
+      regex = /(\d{4}\-\d+)/m
+      matches = @tables[:details].to_s.match(regex)
+      @id = matches[1] unless matches.nil?
     end
   end
 
-  def parse_and_set_id_vol_page
+  def parse_and_set_page
     unless @tables[:details].nil?
-      regex = /(\d{4})\-(\d+)/m
+      regex = /(\d{4})\-\d+/m
       matches = @tables[:details].to_s.match(regex)
       @vol = matches[1] unless matches.nil?
-      @page = matches[2] unless matches.nil?
-      @id = @vol + @page
+    end
+  end
+
+  def parse_and_set_vol
+    unless @tables[:details].nil?
+      regex = /\d{4}\-(\d+)/m
+      matches = @tables[:details].to_s.match(regex)
+      @page = matches[1] unless matches.nil?
     end
   end
 
@@ -70,9 +92,8 @@ class DeschutesDocument
       tr.xpath("td").each_with_index do | td , index |
         row[set_are_referenced_symbol_on_index(index)] = td.text rescue ''
         regex = /INSTRUMENT_ID=(\d*)/
-        if td.to_s.match(regex)
-          row[:instrument_id] = td.to_s.match(regex)[1]
-        end
+        matches = td.to_s.match(regex)
+        row[:instrument_id] = matches[1] unless matches.nil?
       end
 
       @are_referenced << row
@@ -91,9 +112,8 @@ class DeschutesDocument
       tr.xpath("td").each_with_index do | td , index |
         row[set_are_referenced_symbol_on_index(index)] = td.text rescue ''
         regex = /INSTRUMENT_ID=(\d*)/
-        if td.to_s.match(regex)
-          row[:instrument_id] = td.to_s.match(regex)[1]
-        end
+        matches = td.to_s.match(regex)
+        row[:instrument_id] = matches[1] unless matches.nil?
       end
       @make_reference << row
 
