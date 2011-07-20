@@ -1,17 +1,17 @@
 class DeschutesBot
 
-  HOST = 'http://recordings.co.deschutes.or.us'
+  HOST = 'http://recordings.co.deschutes.or.us/'
 
   @browser
 
   def initialize
+    setup_db
     setup_browser
-    #TODO
-    #setup_db
   end
 
   def setup_db
-    dbconfig = YAML::load(file.open('database.yml'))
+    dbconfig = YAML::load(File.open('./db/database.yml'))
+    ActiveRecord::Base.establish_connection(dbconfig)
   end
 
   def setup_browser
@@ -31,12 +31,12 @@ class DeschutesBot
   end
 
   def emulate_javascript_set_cookie
-    host = 'http://recordings.co.deschutes.or.us'
+    host = 'http://recordings.co.deschutes.or.us/'
     # In order for your cookie to be set correctly
     # You first have to call /Login.asp
-    @browser.get(host + '/Login.asp')
+    @browser.get(host + 'Login.asp')
     # Then call /Search.asp
-    @browser.get(host + '/Search.asp')
+    @browser.get(host + 'Search.asp')
   end
 
   def submit_search_form
@@ -59,7 +59,6 @@ class DeschutesBot
 
   def iterate_search_page(page)
     page.links_with(:href => /Detail.asp\?INSTRUMENT_ID=\d/).each do | link |
-      puts "===========#{link}============"
       document = DeschutesDocument.new(link.click.parser)
       document.parse
       deed = get_deed(document)
@@ -77,18 +76,33 @@ class DeschutesBot
   end
 
   def save_deed_and_related_documents(deed)
-    puts deed.id unless deed.id.nil?
-    puts deed.are_referenced unless deed.are_referenced.nil?
-    puts deed.make_reference unless deed.make_reference.nil?
+    puts "+ #{deed.meta}"
+    save_related_documents(deed)
+    #deed.save
+  end
+
+  def save_related_documents(deed)
+    unless deed.make_reference.nil?
+      puts "|_"
+      deed.make_reference.each_with_index do | reference, index |
+        deed.first_make_reference = reference[:document_id] if index == 0
+        document = DeschutesDocument.new(go_to_page(reference[:instrument_id]))
+        document.parse
+        document.pdf_file = get_document_pdf(document.pdf_url)
+        document.save_pdf_file
+        puts "  |-- ""#{document.meta}"
+      end
+    end
   end
 
   def click_next_link(page)
+    puts "\n===========NEXT=============\n"
     url = page.parser.to_s.match(/<a href="(Results\.asp\?START=\d+)">Next\s\d+<\/a>/)
     page.link_with(:href => url[1]).click
   end
 
   def go_to_page(instrument_id)
-    uri  = HOST + "/Detail.asp?INSTRUMENT_ID=#{instrument_id}"
+    uri  = HOST + "Detail.asp?INSTRUMENT_ID=#{instrument_id}"
     @browser.get(uri)
     @browser.page.parser
   end
@@ -96,5 +110,9 @@ class DeschutesBot
   def next_link?(page)
     url = page.parser.to_s.match(/<a href="(Results\.asp\?START=\d+)">Next\s\d+<\/a>/)
     page.link_with(:href => url[1]) ? true : false
+  end
+
+  def get_document_pdf(pdf_url)
+    @browser.get(HOST + pdf_url)
   end
 end

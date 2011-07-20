@@ -7,6 +7,7 @@ require 'yaml'
 require 'active_record'
 require 'mechanize'
 require 'nokogiri'
+require 'htmlentities'
 
 # required files
 require './lib/deschutes_bot'

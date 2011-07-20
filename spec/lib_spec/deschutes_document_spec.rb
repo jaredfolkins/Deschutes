@@ -10,6 +10,20 @@ describe DeschutesDocument do
     @document.parse
   end
 
+  describe "#deed?" do
+    it "returns false when document is not deed" do
+      document = DeschutesDocument.new(load_fixture('record_root'))
+      document.parse
+      document.should_not be_deed
+    end
+
+    it "returns true when document is not deed" do
+      document = DeschutesDocument.new(load_fixture('record_not_root'))
+      document.parse
+      document.should be_deed
+    end
+  end
+
   describe "#verify_or_create_nokogiri_document" do
     it "verifies the document's class is Nokogiri or creates a Nokogiri object" do
       @document.nokogiri_document.should be_a_kind_of(Nokogiri::HTML::Document)
@@ -44,26 +58,19 @@ describe DeschutesDocument do
     end
   end
 
-  describe "#deed?" do
-    it "returns true when document is deed" do
-      document = DeschutesDocument.new(load_fixture('record_root'))
-      document.parse
-      document.should_not be_deed
-    end
-
-    it "returns true when document is not mortgage" do
-      document = DeschutesDocument.new(load_fixture('record_not_root'))
-      document.parse
-      document.should be_deed
-    end
-  end
-
   describe "#parse_and_set_are_referenced" do
     it "parses the document and sets an array of documents that are referenced" do
-      document = DeschutesDocument.new(load_fixture('record_not_root'))
+      #document = DeschutesDocument.new(load_fixture('record_not_root'))
+      pending
     end
   end
 
+  describe "#parse_and_set_make_reference" do
+    it "parses the document and sets an array of documents make reference" do
+      #document = DeschutesDocument.new(load_fixture('record_not_root'))
+      pending
+    end
+  end
   describe "#parse_and_set_type" do
     it "parses the document and sets the document type" do
       @document.parse_and_set_type

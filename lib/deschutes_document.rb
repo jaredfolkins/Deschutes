@@ -1,4 +1,4 @@
-class DeschutesDocument
+class DeschutesDocument < ActiveRecord::Base
 
 
   VERY_HEALTHY = 3
@@ -7,11 +7,20 @@ class DeschutesDocument
   DEAD = 0
 
   attr_accessor :nokogiri_document, :are_referenced, :make_reference, :legal_descriptions, :tables, :root
-  attr_accessor :id, :vol, :page, :type, :subtype, :pdf_url
+  attr_accessor :id, :vol, :page, :type, :subtype, :pdf_file, :pdf_url, :recording_date
   attr_accessor :first_make_reference
 
   def initialize(document)
     @nokogiri_document = verify_or_create_nokogiri_document(document)
+    @tables = {}
+    @are_referenced = []
+    @make_reference = []
+  end
+
+  def save_pdf_file
+    if @pdf_file.kind_of? (Mechanize::File)
+      @pdf_file.save("./storage/pdf/#{@id}.pdf")
+    end
   end
 
   def verify_or_create_nokogiri_document(document)
@@ -37,19 +46,37 @@ class DeschutesDocument
     parse_and_set_page
     parse_and_set_type
     parse_and_set_subtype
+    parse_and_set_recording_date
+    parse_and_set_pdf_url
     self
+  end
+
+  def meta
+     "#{@id} || #{@recording_date} || #{@type} || #{@subtype}"
+  end
+
+  def parse_and_set_recording_date
+    regex = /RECORDING\sDATE:&#160;<\/b><\/font><\/td>\s<td><font size="2">(.*)<\/font>/
+    matches = @tables[:details].to_s.match(regex)
+    @recording_date = HTMLEntities.new.decode(matches[1]) unless matches.nil?
   end
 
   def parse_and_set_type
     regex = /DOCUMENT\sTYPE:<\/b><\/font><\/td>\n<td><font size="2">(.*)<\/font><\/td>/
     matches = @tables[:details].to_s.match(regex)
-    @type = matches[1] unless matches.nil?
+    @type = HTMLEntities.new.decode(matches[1]) unless matches.nil?
   end
 
   def parse_and_set_subtype
     regex = /DOC\sSUBTYPE:<\/b><\/font><\/td>\n<td><font size="2">(.*)<\/font><\/td>/
     matches = @tables[:details].to_s.match(regex)
-    @subtype = matches[1] unless matches.nil?
+    @subtype = HTMLEntities.new.decode(matches[1]) unless matches.nil?
+  end
+
+  def parse_and_set_date
+    regex = /DOC\sSUBTYPE:<\/b><\/font><\/td>\n<td><font size="2">(.*)<\/font><\/td>/
+    matches = @tables[:details].to_s.match(regex)
+    @recording_date = matches[1] unless matches.nil?
   end
 
   def parse_and_set_id
@@ -78,15 +105,13 @@ class DeschutesDocument
 
   def parse_and_set_pdf_url
     unless @tables[:details].nil?
-      regex = /a\shref=("ViewImage.asp\?INST_ID=\d*&amp;TEMP_ID=\d*&amp;TYPE=PDF")/i
+      regex = /a\shref="(ViewImage.asp\?INST_ID=\d*&amp;TEMP_ID=\d*&amp;TYPE=PDF)"/i
       matches = @tables[:details].to_s.match(regex)
       @pdf_url = matches[1] unless matches.nil?
     end
   end
 
   def parse_and_set_are_referenced
-    @are_referenced = []
-
     @tables[:are_referenced].xpath("//table//tr").each do | tr |
       row = {}
       tr.xpath("td").each_with_index do | td , index |
@@ -106,7 +131,6 @@ class DeschutesDocument
   end
 
   def parse_and_set_make_reference
-    @make_reference = []
     @tables[:make_reference].xpath("//table//tr").each do | tr |
       row = {}
       tr.xpath("td").each_with_index do | td , index |
@@ -115,6 +139,7 @@ class DeschutesDocument
         matches = td.to_s.match(regex)
         row[:instrument_id] = matches[1] unless matches.nil?
       end
+
       @make_reference << row
 
       if @make_reference.last[:instrument_id].nil?
@@ -127,7 +152,6 @@ class DeschutesDocument
   # and creates a hash of seperate nokogiri objects 
   # of the tables we need
   def parse_and_set_tables
-    @tables = {}
     @nokogiri_document.xpath(".//table").each_with_index do | table , index |
       if index.odd?
         key = define_key_based_on_index(index)
