@@ -8,6 +8,7 @@ require 'active_record'
 require 'mechanize'
 require 'nokogiri'
 require 'htmlentities'
+require 'mysql'
 
 # required files
 require './lib/deschutes_bot'

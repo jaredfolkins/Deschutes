@@ -2,3 +2,5 @@
 *.pdf
 *.swp
 *.log
+*.yml
+*.sqlite3
