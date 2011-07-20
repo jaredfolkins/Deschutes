@@ -59,7 +59,7 @@ class DeschutesBot
 
   def iterate_search_page(page)
     page.links_with(:href => /Detail.asp\?INSTRUMENT_ID=\d/).each do | link |
-      document = DeschutesDocument.new(link.click.parser)
+      document = Document.new(link.click.parser)
       document.parse
       deed = get_deed(document)
       save_deed_and_related_documents(deed)
@@ -70,7 +70,7 @@ class DeschutesBot
     unless document.deed?
       document
     else
-      deed = DeschutesDocument.new go_to_page(document.get_deed_instrument_id)
+      deed = Document.new go_to_page(document.get_deed_instrument_id)
       deed.parse
     end
   end
@@ -86,7 +86,7 @@ class DeschutesBot
       puts "|_"
       deed.make_reference.each_with_index do | reference, index |
         deed.first_make_reference = reference[:document_id] if index == 0
-        document = DeschutesDocument.new(go_to_page(reference[:instrument_id]))
+        document = Document.new(go_to_page(reference[:instrument_id]))
         document.parse
         document.pdf_file = get_document_pdf(document.pdf_url)
         document.save_pdf_file
