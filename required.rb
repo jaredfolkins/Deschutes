@@ -12,4 +12,4 @@ require 'mysql'
 
 # required files
 require './lib/deschutes_bot'
-require './lib/deschutes_document'
+require './lib/document'

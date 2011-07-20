@@ -90,7 +90,6 @@ class DeschutesBot
         document.parse
         document.pdf_file = get_document_pdf(document.pdf_url)
         document.save_pdf_file
-	document.create
         puts "  |-- ""#{document.meta}"
       end
     end
