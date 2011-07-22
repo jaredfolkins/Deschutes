@@ -11,5 +11,8 @@ require 'htmlentities'
 require 'mysql'
 
 # required files
-require './lib/deschutes_bot'
+require './lib/bot'
+require './lib/storage'
 require './lib/document'
+require './lib/relation'
+require './lib/pdf'
