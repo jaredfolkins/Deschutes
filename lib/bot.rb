@@ -78,47 +78,60 @@ class Bot
   def save_deed_and_related_documents(deed)
     puts "+ #{deed.meta}"
     save_related_documents(deed)
-    Document.create(:volpage => deed.id, :created => deed.recording_date, :doctype => deed.type, :subtype => deed.subtype, :instrument_id => deed.instrument_id) unless Document.exists?(:volpage => deed.id)
+    Document.create(
+      :volpage => deed.id, 
+      :created => deed.recording_date, 
+      :doctype => deed.type, 
+      :subtype => deed.subtype, 
+      :instrument_id => deed.instrument_id) unless Document.exists?(:volpage => deed.id)
   end
 
   def save_related_documents(deed)
-    unless deed.make_reference.nil?
-      puts "|_"
-      deed.make_reference.each_with_index do | reference, index |
-
-        document = Storage.new(go_to_page(reference[:instrument_id]))
-        document.instrument_id = reference[:instrument_id]
-        document.parse
-        puts "  |-- ""#{document.meta}"
-
-        highest_rank = false
-        if index == 0
-          highest_rank = true
-        end
-
-        if document.subtype.match(/DEF.-.Notice\sof\sDefault\s&\sElection\sto\sSell/)
-          delete_files_from_dirs
-          document.pdf_file = get_document_pdf(document.pdf_url)
-          document.save_pdf_file
-          convert_pdf_to_png(document)
-          convert_png_to_txt(document)
-          save_pdf_output_to_database(document)
-        end
-
-        if Relation.exists?(:deed_volpage => deed.id.to_s, :document_volpage => document.id.to_s)  
-          relation = Relation.find_by_deed_volpage_and_document_volpage(deed.id.to_s, document.id.to_s)
-          relation.update_attribute(:highest_rank, highest_rank)
-        else
-          Relation.create(:deed_volpage => deed.id.to_s, :document_volpage => document.id.to_s, :highest_rank => highest_rank)        
-        end 
-        string = document.type
-        Document.create(
-          :volpage => document.id, 
-          :created => document.recording_date.to_s, 
-          :doctype => document.type.to_s, 
-          :subtype => document.subtype, 
-          :instrument_id => document.instrument_id) unless Document.exists?(:volpage => deed.id)
+      unless deed.make_reference.nil?
+        puts "|_"
+        deed.make_reference.each_with_index do | reference, index |
+          document = Storage.new(go_to_page(reference[:instrument_id]))
+          document.instrument_id = reference[:instrument_id]
+          document.parse
+          puts "  |-- ""#{document.meta}"
+          highest_rank = define_highest_rank(index)
+          save_and_process_pdf_default_notices(document)
+          save_documents_relations(document, deed, highest_rank)
+          save_document(document, deed)
       end
+    end
+  end
+
+  def define_highest_rank(index)
+    index == 0 ? true : false
+  end
+
+  def save_document(document,deed)
+    Document.create(
+      :volpage => document.id, 
+      :created => document.recording_date.to_s, 
+      :doctype => document.type.to_s, 
+      :subtype => document.subtype, 
+      :instrument_id => document.instrument_id) unless Document.exists?(:volpage => deed.id)
+  end
+
+  def save_documents_relations(document, deed, highest_rank)
+    if Relation.exists?(:deed_volpage => deed.id.to_s, :document_volpage => document.id.to_s)  
+      relation = Relation.find_by_deed_volpage_and_document_volpage(deed.id.to_s, document.id.to_s)
+      relation.update_attribute(:highest_rank, highest_rank)
+    else
+      Relation.create(:deed_volpage => deed.id.to_s, :document_volpage => document.id.to_s, :highest_rank => highest_rank)        
+    end 
+  end
+
+  def save_and_process_pdf_default_notices(document)
+    if document.subtype.match(/DEF.-.Notice\sof\sDefault\s&\sElection\sto\sSell/)
+      #delete_files_from_dirs
+      document.pdf_file = get_document_pdf(document.pdf_url)
+      document.save_pdf_file
+      #convert_pdf_to_png(document)
+      #convert_png_to_txt(document)
+      #save_pdf_output_to_database(document)
     end
   end
 
