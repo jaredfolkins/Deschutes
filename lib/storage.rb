@@ -18,7 +18,7 @@ class Storage
 
   def save_pdf_file
     if @pdf_file.kind_of? (Mechanize::File)
-      @pdf_file.save("./tmp/#{@id}.pdf")
+      @pdf_file.save("./storage/pdf/#{@id}.pdf")
     end
   end
 
@@ -36,6 +36,10 @@ class Storage
     @are_referenced.last[:instrument_id] if deed?
   end
 
+  def meta
+     "#{@id} || #{@recording_date} || #{@instrument_id} || #{@type} || #{@subtype} "
+  end
+
   def parse
     parse_and_set_tables
     parse_and_set_are_referenced
@@ -48,10 +52,6 @@ class Storage
     parse_and_set_recording_date
     parse_and_set_pdf_url
     self
-  end
-
-  def meta
-     "#{@id} || #{@recording_date} || #{@instrument_id} || #{@type} || #{@subtype} "
   end
 
   def parse_and_set_recording_date
