@@ -6,7 +6,7 @@ class Storage
   DEAD = 0
 
   attr_accessor :nokogiri_document, :are_referenced, :make_reference, :legal_descriptions, :tables, :instrument_id
-  attr_accessor :id, :vol, :page, :type, :subtype, :pdf_file, :pdf_url, :recording_date
+  attr_accessor :id, :vol, :page, :type, :subtype, :pdf_file, :pdf_url, :recording_date, :subdivision, :lot
   attr_accessor :first_make_reference
 
   def initialize(document)
@@ -26,18 +26,18 @@ class Storage
     document.kind_of?(Nokogiri) ? document.to_s :  Nokogiri::HTML(document.to_s)
   end
 
-  def deed?
+  def mortgage?
     unless @are_referenced.nil?
       @are_referenced.last[:document_type].match(/Deed/) ? true : false
     end
   end
 
-  def get_deed_instrument_id
-    @are_referenced.last[:instrument_id] if deed?
+  def get_mortgage_instrument_id
+    @are_referenced.last[:instrument_id] if mortgage?
   end
 
   def meta
-     "#{@id} || #{@recording_date} || #{@instrument_id} || #{@type} || #{@subtype} "
+     "#{@id} || #{@recording_date} || #{@instrument_id} || #{@type} || #{@subtype} || #{@subdivision} || #{@lot}"
   end
 
   def parse
@@ -51,6 +51,7 @@ class Storage
     parse_and_set_subtype
     parse_and_set_recording_date
     parse_and_set_pdf_url
+    parse_and_set_legal_descriptions
     self
   end
 
@@ -80,13 +81,16 @@ class Storage
   def parse_and_set_type
     regex = /DOCUMENT\sTYPE:<\/b><\/font><\/td>\n<td><font size="2">(.*)<\/font><\/td>/
     matches = @tables[:details].to_s.match(regex)
-    @type = HTMLEntities.new.decode(matches[1]) unless matches.nil?
+    #@type = HTMLEntities.new.decode(matches[1]) unless matches.nil?
+    @type = matches[1].gsub(/&#160;/,' ') unless matches.nil?
+    @type = @type.gsub(/&amp;/, '&')
   end
 
   def parse_and_set_subtype
     regex = /DOC\sSUBTYPE:<\/b><\/font><\/td>\n<td><font size="2">(.*)<\/font><\/td>/
     matches = @tables[:details].to_s.match(regex)
-    @subtype = HTMLEntities.new.decode(matches[1]) unless matches.nil?
+    @subtype = matches[1].gsub(/&#160;/,' ') unless matches.nil?
+    @subtype = @subtype.gsub(/&amp;/, '&')
   end
 
   #def parse_and_set_date
@@ -124,6 +128,18 @@ class Storage
       regex = /a\shref="(ViewImage.asp\?INST_ID=\d*&amp;TEMP_ID=\d*&amp;TYPE=PDF)"/i
       matches = @tables[:details].to_s.match(regex)
       @pdf_url = matches[1] unless matches.nil?
+    end
+  end
+
+  def parse_and_set_legal_descriptions
+    @tables[:legal_descriptions].xpath("//table//tr").each do | tr |
+      row = {}
+      tr.xpath("td").each_with_index do | td , index |
+        row[set_legal_descriptions_symbol_on_index(index)] = td.text rescue nil
+      end
+      @legal_descriptions = row
+      @subdivision = row[:subdivision].gsub(/[^0-9A-Za-z\s]/,'')
+      @lot = row[:lot].gsub(/[^0-9A-Za-z\s]/,'')
     end
   end
 
@@ -176,6 +192,14 @@ class Storage
           @tables[key] = table
         end
       end
+    end
+  end
+
+  def set_legal_descriptions_symbol_on_index(index)
+    case index
+      when 0 then :subdivision
+      when 1 then :lot
+      when 2 then :block
     end
   end
 
