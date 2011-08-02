@@ -146,10 +146,11 @@ class Bot
   end
 
   def save_related_documents(mortgage)
-      unless mortgage.make_reference.nil?
-        puts "  |_"
-        mortgage.make_reference.each_with_index do | reference, index |
-          document = Storage.new(go_to_page(reference[:instrument_id]))
+    unless mortgage.make_reference.nil?
+      puts "  |_"
+      mortgage.make_reference.each_with_index do | reference, index |
+        document = Storage.new(go_to_page(reference[:instrument_id]))
+        unless document.nil?
           document.instrument_id = reference[:instrument_id]
           document.parse
           puts "    |-- ""#{document.meta}"
@@ -157,6 +158,7 @@ class Bot
           save_and_process_pdf_default_notices(document)
           save_mortgage_make_reference(document, mortgage, highest_rank)
           save_document(document, mortgage)
+        end
       end
     end
   end
@@ -220,6 +222,7 @@ class Bot
     @browser.page.parser
   rescue
     puts "go_to_page() failed with #{instrument_id}"
+    nil
   end
 
   def search_results_page?(page)
