@@ -218,6 +218,8 @@ class Bot
     uri  = HOST + "Detail.asp?INSTRUMENT_ID=#{instrument_id}"
     @browser.get(uri)
     @browser.page.parser
+  rescue
+    puts "go_to_page() failed with #{instrument_id}"
   end
 
   def search_results_page?(page)
