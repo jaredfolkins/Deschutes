@@ -171,7 +171,7 @@ class Bot
       :recording_date => document.recording_date.to_s,
       :doctype => document.type.to_s,
       :subtype => document.subtype,
-      :instrument_id => document.instrument_id) unless Document.exists?(:volpage => mortgage.id)
+      :instrument_id => document.instrument_id) unless Document.exists?(:volpage => document.id)
   end
 
   def save_deed(document, instrument_id = nil)
