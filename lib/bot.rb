@@ -2,7 +2,7 @@ class Bot
 
   HOST = 'http://recordings.co.deschutes.or.us/'
 
-  @browser
+  attr_reader :browser
 
   def initialize
     setup_db
@@ -217,12 +217,14 @@ class Bot
   end
 
   def go_to_page(instrument_id)
-    uri  = HOST + "Detail.asp?INSTRUMENT_ID=#{instrument_id}"
-    @browser.get(uri)
-    @browser.page.parser
-  rescue
-    puts "go_to_page() failed with #{instrument_id}"
-    nil
+    begin
+      uri  = HOST + "Detail.asp?INSTRUMENT_ID=#{instrument_id}"
+      @browser.get(uri)
+      @browser.page.parser
+    rescue
+      puts "go_to_page() failed with #{instrument_id}"
+      nil
+    end
   end
 
   def search_results_page?(page)
