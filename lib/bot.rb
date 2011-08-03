@@ -1,6 +1,9 @@
 class Bot
 
   HOST = 'http://recordings.co.deschutes.or.us/'
+  CURRENT_DIR = File.dirname(__FILE__)
+  DB_FILE = CURRENT_DIR + '/../db/database.yml'
+  BROWSER_LOG_FILE = CURRENT_DIR + "/../log/mechanize.log"
 
   attr_reader :browser
 
@@ -10,12 +13,12 @@ class Bot
   end
 
   def setup_db
-    dbconfig = YAML::load(File.open('./db/database.yml'))
+    dbconfig = YAML::load(File.open(DB_FILE))
     ActiveRecord::Base.establish_connection(dbconfig)
   end
 
   def setup_browser
-    @browser = Mechanize.new { |a| a.log = Logger.new("./log/mechanize.log") }
+    @browser = Mechanize.new { |a| a.log = Logger.new(BROWSER_LOG_FILE) }
     @browser.redirect_ok = true
     @browser.user_agent_alias = 'Mac FireFox'
     @browser.request_headers = {
@@ -48,7 +51,7 @@ class Bot
   end
 
   def submit_search_by_subdivision_and_lot(subdivision,lot)
-    browser = Mechanize.new { |a| a.log = Logger.new("./log/mechanize.log") }
+    browser = Mechanize.new { |a| a.log = Logger.new(BROWSER_LOG_FILE) }
     browser.redirect_ok = true
     browser.user_agent_alias = 'Mac FireFox'
     browser.request_headers = {
@@ -58,8 +61,7 @@ class Bot
       'Accept-Language' => 'en-us,en;q=0.5',
       'Accept-Encoding' => 'gzip,deflate',
       'Accept-Charset' => 'ISO-8859-1,utf-8;q=0.7,*;q=0.7',
-      'Keep-Alive' => '115',
-      'Connection' => 'keep-alive'
+      'Keep-Alive' => '115', 'Connection' => 'keep-alive'
     }
     browser.get(HOST + "Login.asp")
     browser.get(HOST + "Search.asp")
