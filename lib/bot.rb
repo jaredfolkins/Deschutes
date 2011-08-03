@@ -151,8 +151,9 @@ class Bot
     unless mortgage.make_reference.nil?
       puts "  |_"
       mortgage.make_reference.each_with_index do | reference, index |
-        document = Storage.new(go_to_page(reference[:instrument_id]))
-        unless document.nil?
+        page = go_to_page(reference[:instrument_id])
+        unless page.nil?
+          document = Storage.new(page)
           document.instrument_id = reference[:instrument_id]
           document.parse
           puts "    |-- ""#{document.meta}"
