@@ -5,11 +5,13 @@ class Bot
   DB_FILE = CURRENT_DIR + '/../db/database.yml'
   BROWSER_LOG_FILE = CURRENT_DIR + "/../log/mechanize.log"
 
-  attr_reader :browser
+  attr_reader :browser, :profiler
 
   def initialize
     setup_db
     setup_browser
+    GC::Profiler.enable
+    GC.start
   end
 
   def setup_db
@@ -88,6 +90,7 @@ class Bot
               save_deed(document, instrument_id)
               save_mortgage_deed_relation(mortgage, document)
               puts "    |-- #{document.meta}"
+              document = nil
             end
           end
         else
@@ -95,8 +98,10 @@ class Bot
           document.parse
           save_deed(document)
           puts "    |-- #{document.meta}"
+          document = nil
         end
       end
+      page = nil
     end
   end
 
@@ -106,14 +111,15 @@ class Bot
 
   def run_loop
     while next_link?(@browser.page) do
-      page = @browser.page
-      iterate_search_page(page)
-      click_next_link(page)
+      iterate_search_page(@browser.page)
+      click_next_link(@browser.page)
     end
   end
 
   def iterate_search_page(page)
     page.links_with(:href => /Detail.asp\?INSTRUMENT_ID=\d/).each_with_index do | link, index |
+      GC.start
+      puts GC::Profiler.report
       document = Storage.new(link.click.parser)
       document.parse
       puts "\n"
@@ -122,6 +128,8 @@ class Bot
       mortgage = get_mortgage(document)
       save_mortgage_and_related_documents(mortgage)
       save_mortgage_deed(mortgage)
+      document = nil
+      mortgage = nil
     end
   end
 
@@ -161,7 +169,10 @@ class Bot
           save_and_process_pdf_default_notices(document)
           save_mortgage_make_reference(document, mortgage, highest_rank)
           save_document(document, mortgage)
+          highest_rank = nil
+          document = nil
         end
+        page = nil
       end
     end
   end
@@ -221,8 +232,7 @@ class Bot
 
   def go_to_page(instrument_id)
     begin
-      uri  = HOST + "Detail.asp?INSTRUMENT_ID=#{instrument_id}"
-      @browser.get(uri)
+      @browser.get(HOST + "Detail.asp?INSTRUMENT_ID=#{instrument_id}")
       @browser.page.parser
     rescue
       puts "go_to_page() failed with #{instrument_id}"
