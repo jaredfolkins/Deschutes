@@ -3,9 +3,10 @@ class Bot
   HOST = 'http://recordings.co.deschutes.or.us/'
   CURRENT_DIR = File.dirname(__FILE__)
   DB_FILE = CURRENT_DIR + '/../db/database.yml'
-  BROWSER_LOG_FILE = CURRENT_DIR + "/../log/mechanize.log"
+  BROWSER_LOG_FILE = CURRENT_DIR + "/../log/browser.log"
+  BROWSER_TWO_LOG_FILE = CURRENT_DIR + "/../log/browser_two.log"
 
-  attr_reader :browser, :profiler
+  attr_reader :browser, :browser_two, :profiler
 
   def initialize
     setup_db
@@ -21,8 +22,14 @@ class Bot
 
   def setup_browser
     @browser = Mechanize.new { |a| a.log = Logger.new(BROWSER_LOG_FILE) }
+    @browser_two = Mechanize.new { |a| a.log = Logger.new(BROWSER_TWO_LOG_FILE) }
+
     @browser.redirect_ok = true
+    @browser_two.redirect_ok = true
+
     @browser.user_agent_alias = 'Mac FireFox'
+    @browser_two.user_agent_alias = 'Mac FireFox'
+
     @browser.request_headers = {
       'Referer' => 'http://recordings.co.deschutes.or.us/Search.asp',
       'User-Agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0',
@@ -32,6 +39,16 @@ class Bot
       'Accept-Charset' => 'ISO-8859-1,utf-8;q=0.7,*;q=0.7',
       'Keep-Alive' => '115',
       'Connection' => 'keep-alive'
+    }
+
+    @browser_two.request_headers = {
+      'Referer' => 'http://recordings.co.deschutes.or.us/Search.asp',
+      'User-Agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0',
+      'Accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+      'Accept-Language' => 'en-us,en;q=0.5',
+      'Accept-Encoding' => 'gzip,deflate',
+      'Accept-Charset' => 'ISO-8859-1,utf-8;q=0.7,*;q=0.7',
+      'Keep-Alive' => '115', 'Connection' => 'keep-alive'
     }
   end
 
@@ -53,27 +70,15 @@ class Bot
   end
 
   def submit_search_by_subdivision_and_lot(subdivision,lot)
-    browser = Mechanize.new { |a| a.log = Logger.new(BROWSER_LOG_FILE) }
-    browser.redirect_ok = true
-    browser.user_agent_alias = 'Mac FireFox'
-    browser.request_headers = {
-      'Referer' => 'http://recordings.co.deschutes.or.us/Search.asp',
-      'User-Agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0',
-      'Accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-      'Accept-Language' => 'en-us,en;q=0.5',
-      'Accept-Encoding' => 'gzip,deflate',
-      'Accept-Charset' => 'ISO-8859-1,utf-8;q=0.7,*;q=0.7',
-      'Keep-Alive' => '115', 'Connection' => 'keep-alive'
-    }
-    browser.get(HOST + "Login.asp")
-    browser.get(HOST + "Search.asp")
-    search_form = browser.page.form("frmMain")
+    @browser_two.get(HOST + "Login.asp")
+    @browser_two.get(HOST + "Search.asp")
+    search_form = @browser_two.page.form("frmMain")
     search_form.cmbDocumentType = 5
     search_form.radiobuttons_with(:name => 'rbOrder')[1].check
     search_form.radiobuttons_with(:name => 'rbDocTypeOpt')[1].uncheck
     search_form.field_with(:name => 'dfSubdivision').value = subdivision
     search_form.field_with(:name => 'dfLegal1').value = lot
-    browser.submit(search_form)
+    @browser_two.submit(search_form)
   end
 
   def save_mortgage_deed(mortgage)
@@ -90,7 +95,6 @@ class Bot
               save_deed(document, instrument_id)
               save_mortgage_deed_relation(mortgage, document)
               puts "    |-- #{document.meta}"
-              document = nil
             end
           end
         else
@@ -98,10 +102,8 @@ class Bot
           document.parse
           save_deed(document)
           puts "    |-- #{document.meta}"
-          document = nil
         end
       end
-      page = nil
     end
   end
 
@@ -111,25 +113,22 @@ class Bot
 
   def run_loop
     while next_link?(@browser.page) do
-      iterate_search_page(@browser.page)
-      click_next_link(@browser.page)
+      page = @browser.page
+      iterate_search_page(page)
+      click_next_link(page)
+      page = nil
     end
   end
 
   def iterate_search_page(page)
     page.links_with(:href => /Detail.asp\?INSTRUMENT_ID=\d/).each_with_index do | link, index |
-      GC.start
-      puts GC::Profiler.report
+      #puts GC::Profiler.report
       document = Storage.new(link.click.parser)
       document.parse
-      puts "\n"
-      puts "+ #{document.meta}\n"
-      puts "|_"
+      puts "\n+ #{document.meta}\n|_"
       mortgage = get_mortgage(document)
       save_mortgage_and_related_documents(mortgage)
       save_mortgage_deed(mortgage)
-      document = nil
-      mortgage = nil
     end
   end
 
@@ -169,10 +168,7 @@ class Bot
           save_and_process_pdf_default_notices(document)
           save_mortgage_make_reference(document, mortgage, highest_rank)
           save_document(document, mortgage)
-          highest_rank = nil
-          document = nil
         end
-        page = nil
       end
     end
   end
@@ -225,8 +221,8 @@ class Bot
   end
 
   def click_next_link(page)
-    puts "\n===========NEXT=============\n"
     url = page.parser.to_s.match(/<a href="(Results\.asp\?START=\d+)">Next\s\d+<\/a>/)
+    puts "\n=========NEXT: (#{url}) ==========\n"
     page.link_with(:href => url[1]).click
   end
 
