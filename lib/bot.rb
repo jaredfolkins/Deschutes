@@ -220,7 +220,7 @@ class Bot
   end
 
   def click_next_link(page)
-    url = page.body.to_s.match(/<a href="(Results\.asp\?START=\d+)">Next\s\d+<\/a>/)
+    url = page.body.to_s.match(/<a href=(Results\.asp\?START=\d+)>Next/i)
     puts "\n=========NEXT: (#{url}) ==========\n"
     page.link_with(:href => url[1]).click
     url = nil
