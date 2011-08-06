@@ -19,11 +19,14 @@ class Bot
   end
 
   def setup_browser
-    @browser = Mechanize.new { |a| a.log = Logger.new(BROWSER_LOG_FILE) }
-    @browser_two = Mechanize.new { |a| a.log = Logger.new(BROWSER_TWO_LOG_FILE) }
+    #@browser = Mechanize.new { |a| a.log = Logger.new(BROWSER_LOG_FILE) }
+    #@browser_two = Mechanize.new { |a| a.log = Logger.new(BROWSER_TWO_LOG_FILE) }
+
+    @browser = Mechanize.new 
+    @browser_two = Mechanize.new 
 
     @browser.max_history = 10
-    @browser.max_history = 10
+    @browser_two.max_history = 10
 
     redirect = true
     @browser.redirect_ok = redirect
@@ -113,9 +116,11 @@ class Bot
 
   def run_loop
     while next_link?(@browser.page) do
+      Memprof.trace{
         page = @browser.page
         iterate_search_page(page)
         click_next_link(page)
+      }
     end
   end
 
