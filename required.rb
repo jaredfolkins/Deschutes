@@ -1,3 +1,5 @@
+require `gem which memprof/signal`.chomp
+
 require 'rubygems'
 require 'bundler/setup'
 require 'logger'
@@ -9,7 +11,6 @@ require 'mechanize'
 require 'nokogiri'
 require 'htmlentities'
 require 'mysql'
-require 'memprof'
 
 # required files
 require'./lib/bot'
