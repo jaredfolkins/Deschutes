@@ -121,13 +121,16 @@ class Bot
 
   def iterate_search_page(page)
     page.links_with(:href => /Detail.asp\?INSTRUMENT_ID=\d/).each_with_index do | link, index |
-      body = link.click.body
-      document = Storage.new(body)
-      document.parse
-      puts "\n+ #{document.meta}\n|_"
-      mortgage = get_mortgage(document)
-      save_mortgage_and_related_documents(mortgage)
-      save_mortgage_deed(mortgage)
+      Memprof.track{
+          body = link.click.body
+          document = Storage.new(body)
+          document.parse
+          puts "\n+ #{document.meta}\n|_"
+          mortgage = get_mortgage(document)
+          save_mortgage_and_related_documents(mortgage)
+          save_mortgage_deed(mortgage)
+      }
+      GC.start
     end
   end
 

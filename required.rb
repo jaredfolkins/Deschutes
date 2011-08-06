@@ -9,6 +9,7 @@ require 'mechanize'
 require 'nokogiri'
 require 'htmlentities'
 require 'mysql'
+require 'memprof'
 
 # required files
 require'./lib/bot'
