@@ -17,7 +17,7 @@ class Storage
   end
 
   def save_pdf_file
-    if @pdf_file.kind_of? (Mechanize::File)
+    if @pdf_file.kind_of?(Mechanize::File)
       @pdf_file.save("./storage/pdf/#{@id}.pdf")
     end
   end
@@ -81,9 +81,9 @@ class Storage
   def parse_and_set_type
     regex = /DOCUMENT\sTYPE:<\/b><\/font><\/td>\n<td><font size="2">(.*)<\/font><\/td>/
     matches = @tables[:details].to_s.match(regex)
-    #@type = HTMLEntities.new.decode(matches[1]) unless matches.nil?
     @type = matches[1].gsub(/&#160;/,' ') unless matches.nil?
-    @type = @type.gsub(/&amp;/, '&')
+    @type = @type.gsub(/&amp;/,'&')
+    @type = @type.gsub(/&nbsp;/,' ')
   end
 
   def parse_and_set_subtype
@@ -91,6 +91,7 @@ class Storage
     matches = @tables[:details].to_s.match(regex)
     @subtype = matches[1].gsub(/&#160;/,' ') unless matches.nil?
     @subtype = @subtype.gsub(/&amp;/, '&')
+    @subtype = @subtype.gsub(/&nbsp;/,' ')
   end
 
   #def parse_and_set_date
@@ -191,6 +192,7 @@ class Storage
         noko.xpath("/html/body/table").each do | table |
           @tables[key] = table
         end
+        noko = nil
       end
     end
   end

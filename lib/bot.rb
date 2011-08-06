@@ -11,8 +11,6 @@ class Bot
   def initialize
     setup_db
     setup_browser
-    GC::Profiler.enable
-    GC.start
   end
 
   def setup_db
@@ -24,13 +22,19 @@ class Bot
     @browser = Mechanize.new { |a| a.log = Logger.new(BROWSER_LOG_FILE) }
     @browser_two = Mechanize.new { |a| a.log = Logger.new(BROWSER_TWO_LOG_FILE) }
 
-    @browser.redirect_ok = true
-    @browser_two.redirect_ok = true
+    @browser.max_history = 10
+    @browser.max_history = 10
 
-    @browser.user_agent_alias = 'Mac FireFox'
-    @browser_two.user_agent_alias = 'Mac FireFox'
+    redirect = true
+    @browser.redirect_ok = redirect
+    @browser_two.redirect_ok = redirect
 
-    @browser.request_headers = {
+    agent_alias = "Mac FireFox"
+
+    @browser.user_agent_alias = agent_alias
+    @browser_two.user_agent_alias = agent_alias
+
+    headers = {
       'Referer' => 'http://recordings.co.deschutes.or.us/Search.asp',
       'User-Agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0',
       'Accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
@@ -41,15 +45,9 @@ class Bot
       'Connection' => 'keep-alive'
     }
 
-    @browser_two.request_headers = {
-      'Referer' => 'http://recordings.co.deschutes.or.us/Search.asp',
-      'User-Agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0',
-      'Accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-      'Accept-Language' => 'en-us,en;q=0.5',
-      'Accept-Encoding' => 'gzip,deflate',
-      'Accept-Charset' => 'ISO-8859-1,utf-8;q=0.7,*;q=0.7',
-      'Keep-Alive' => '115', 'Connection' => 'keep-alive'
-    }
+    @browser.request_headers = headers
+    @browser_two.request_headers = headers
+
   end
 
   # In order for your cookie to be set correctly
@@ -58,6 +56,7 @@ class Bot
     @browser.get(HOST + "Login.asp")
     @browser.get(HOST + "Search.asp")
   end
+
 
   def submit_search_form
     emulate_javascript_set_cookie
@@ -86,11 +85,12 @@ class Bot
       page = submit_search_by_subdivision_and_lot(mortgage.subdivision, mortgage.lot)
       unless no_records_found?(page)
         if search_results_page?(page)
-          page.links_with(:href => /Detail.asp\?INSTRUMENT_ID=\d/).each_with_index do | link, index |
+          page.links_with(:href => /Detail.asp\?INSTRUMENT_ID=\d+/).each_with_index do | link, index |
             if index == 0
               matches = link.href.match(/Detail.asp\?INSTRUMENT_ID=(\d+)/)
               instrument_id = matches[1] unless matches.nil?
-              document = Storage.new(link.click.parser)
+              body = link.click.body
+              document = Storage.new(body)
               document.parse
               save_deed(document, instrument_id)
               save_mortgage_deed_relation(mortgage, document)
@@ -98,7 +98,7 @@ class Bot
             end
           end
         else
-          document = Storage.new(page.parser)
+          document = Storage.new(page.body)
           document.parse
           save_deed(document)
           puts "    |-- #{document.meta}"
@@ -108,22 +108,21 @@ class Bot
   end
 
   def no_records_found?(page)
-    page.parser.to_s.match(/No\srecords\sfound/) ? true : false
+    page.body.to_s.match(/No\srecords\sfound/) ? true : false
   end
 
   def run_loop
     while next_link?(@browser.page) do
-      page = @browser.page
-      iterate_search_page(page)
-      click_next_link(page)
-      page = nil
+        page = @browser.page
+        iterate_search_page(page)
+        click_next_link(page)
     end
   end
 
   def iterate_search_page(page)
     page.links_with(:href => /Detail.asp\?INSTRUMENT_ID=\d/).each_with_index do | link, index |
-      #puts GC::Profiler.report
-      document = Storage.new(link.click.parser)
+      body = link.click.body
+      document = Storage.new(body)
       document.parse
       puts "\n+ #{document.meta}\n|_"
       mortgage = get_mortgage(document)
@@ -221,15 +220,16 @@ class Bot
   end
 
   def click_next_link(page)
-    url = page.parser.to_s.match(/<a href="(Results\.asp\?START=\d+)">Next\s\d+<\/a>/)
+    url = page.body.to_s.match(/<a href="(Results\.asp\?START=\d+)">Next\s\d+<\/a>/)
     puts "\n=========NEXT: (#{url}) ==========\n"
     page.link_with(:href => url[1]).click
+    url = nil
   end
 
   def go_to_page(instrument_id)
     begin
       @browser.get(HOST + "Detail.asp?INSTRUMENT_ID=#{instrument_id}")
-      @browser.page.parser
+      @browser.page.body
     rescue
       puts "go_to_page() failed with #{instrument_id}"
       nil
@@ -237,11 +237,11 @@ class Bot
   end
 
   def search_results_page?(page)
-    page.parser.to_s.match(/<b>Search\sResults<\/b>/) ? true : false
+    page.body.to_s.match(/<b>Search\sResults<\/b>/i) ? true : false
   end
 
   def next_link?(page)
-    url = page.parser.to_s.match(/<a href="(Results\.asp\?START=\d+)">Next\s\d+<\/a>/)
+    url = page.body.to_s.match(/<a href=(Results\.asp\?START=\d+)>Next/i)
     page.link_with(:href => url[1]) ? true : false
   end
 
