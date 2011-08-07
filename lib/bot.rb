@@ -60,7 +60,6 @@ class Bot
     @browser.get(HOST + "Search.asp")
   end
 
-
   def submit_search_form
     emulate_javascript_set_cookie
     search_form = @browser.page.form("frmMain")
@@ -95,16 +94,19 @@ class Bot
               body = link.click.body
               document = Storage.new(body)
               document.parse
-              save_deed(document, instrument_id)
-              save_mortgage_deed_relation(mortgage, document)
-              puts "    |-- #{document.meta}"
+              unless document.tables_count > 12
+                save_deed(document, instrument_id)
+                save_mortgage_deed_relation(mortgage, document)
+                puts "    |-- #{document.meta}"
+              end
             end
           end
         else
           document = Storage.new(page.body)
           document.parse
-          save_deed(document)
           puts "    |-- #{document.meta}"
+          save_deed(document)
+          #todo save_mortage_deed_relation ? needs to be here
         end
       end
     end
@@ -116,23 +118,28 @@ class Bot
 
   def run_loop
     while next_link?(@browser.page) do
-      Memprof.trace{
+      #Memprof.trace{
         page = @browser.page
         iterate_search_page(page)
         click_next_link(page)
-      }
+      #}
     end
+  end
+
+  def traverse_tree_from_page(body)
+      document = Storage.new(body).parse
+      if document.tables.count > 1
+        puts "\n+ #{document.meta}\n|_"
+        mortgage = get_mortgage(document)
+        save_mortgage_and_related_documents(mortgage)
+        save_related_documents(mortgage)
+        save_mortgage_deed(mortgage)
+      end
   end
 
   def iterate_search_page(page)
     page.links_with(:href => /Detail.asp\?INSTRUMENT_ID=\d/).each_with_index do | link, index |
-      body = link.click.body
-      document = Storage.new(body)
-      document.parse
-      puts "\n+ #{document.meta}\n|_"
-      mortgage = get_mortgage(document)
-      save_mortgage_and_related_documents(mortgage)
-      save_mortgage_deed(mortgage)
+      traverse_tree_from_page(link.click.body)
     end
   end
 
@@ -149,7 +156,6 @@ class Bot
 
   def save_mortgage_and_related_documents(mortgage)
     puts "  + #{mortgage.meta}"
-    save_related_documents(mortgage)
     Document.create(
       :volpage => mortgage.id,
       :recording_date => mortgage.recording_date,

@@ -8,8 +8,10 @@ class Storage
   attr_accessor :nokogiri_document, :are_referenced, :make_reference, :legal_descriptions, :tables, :instrument_id
   attr_accessor :id, :vol, :page, :type, :subtype, :pdf_file, :pdf_url, :recording_date, :subdivision, :lot
   attr_accessor :first_make_reference
+  attr_accessor :tables_count
 
   def initialize(document)
+    document = remove_custom_indexes(document)
     @nokogiri_document = verify_or_create_nokogiri_document(document)
     @tables = {}
     @are_referenced = []
@@ -37,21 +39,32 @@ class Storage
   end
 
   def meta
-     "#{@id} || #{@recording_date} || #{@instrument_id} || #{@type} || #{@subtype} || #{@subdivision} || #{@lot}"
+     "#{@tables_count} || #{@id} || #{@recording_date} || #{@instrument_id} || #{@type} || #{@subtype} || #{@subdivision} || #{@lot}"
+  end
+
+  def remove_custom_indexes(document)
+    matches = document.match(/(<BR><B><FONT\sCOLOR="gray"\ssize=3>Custom\sIndexes<\/FONT><\/B><BR>.*<\/TABLE>).*<BR><B><FONT\sCOLOR="gray"\ssize=3>The\sfollowing\sdocuments\s<FONT\sCOLOR="red">are\sreferenced/im)
+    if matches.nil?
+      document
+    else
+      document.gsub(matches[1], '')
+    end
   end
 
   def parse
     parse_and_set_tables
-    parse_and_set_are_referenced
-    parse_and_set_make_reference
-    parse_and_set_id
-    parse_and_set_vol
-    parse_and_set_page
-    parse_and_set_type
-    parse_and_set_subtype
-    parse_and_set_recording_date
-    parse_and_set_pdf_url
-    parse_and_set_legal_descriptions
+    if @tables.count > 1
+      parse_and_set_are_referenced
+      parse_and_set_make_reference
+      parse_and_set_id
+      parse_and_set_vol
+      parse_and_set_page
+      parse_and_set_type
+      parse_and_set_subtype
+      parse_and_set_recording_date
+      parse_and_set_pdf_url
+      parse_and_set_legal_descriptions
+    end
     self
   end
 
@@ -93,12 +106,6 @@ class Storage
     @subtype = @subtype.gsub(/&amp;/, '&')
     @subtype = @subtype.gsub(/&nbsp;/,' ')
   end
-
-  #def parse_and_set_date
-  #  regex = /DOC\sSUBTYPE:<\/b><\/font><\/td>\n<td><font size="2">(.*)<\/font><\/td>/
-  #  matches = @tables[:details].to_s.match(regex)
-  #  @recording_date = matches[1] unless matches.nil?
-  #end
 
   def parse_and_set_id
     unless @tables[:details].nil?
@@ -185,14 +192,18 @@ class Storage
   # and creates a hash of seperate nokogiri objects 
   # of the tables we need
   def parse_and_set_tables
-    @nokogiri_document.xpath(".//table").each_with_index do | table , index |
-      if index.odd?
-        key = define_key_based_on_index(index)
-        noko = Nokogiri::HTML(table.to_s)
-        noko.xpath("/html/body/table").each do | table |
-          @tables[key] = table
+    tables = @nokogiri_document.xpath(".//table")
+    @tables_count = tables.count
+    unless @tables_count > 12
+      tables.each_with_index do | table , index |
+        if index.odd?
+          key = define_key_based_on_index(index)
+          noko = Nokogiri::HTML(table.to_s)
+          noko.xpath("/html/body/table").each do | table |
+            @tables[key] = table
+          end
+          noko = nil
         end
-        noko = nil
       end
     end
   end
