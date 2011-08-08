@@ -94,6 +94,7 @@ class Bot
               body = link.click.body
               document = Storage.new(body)
               document.parse
+              document.instrument_id = instrument_id
               unless document.tables_count > 12
                 save_deed(document, instrument_id)
                 save_mortgage_deed_relation(mortgage, document)
