@@ -29,7 +29,7 @@ class Storage
   end
 
   def mortgage?
-    unless @are_referenced.nil?
+    unless @are_referenced.last.nil?
       @are_referenced.last[:document_type].match(/Deed/) ? true : false
     end
   end
@@ -160,13 +160,13 @@ class Storage
         matches = td.to_s.match(regex)
         row[:instrument_id] = matches[1] unless matches.nil?
       end
-
       @are_referenced << row
+    end
 
-      if @are_referenced.last[:instrument_id].nil?
-        @are_referenced = nil
+    @are_referenced.each_with_index do | ref, index |
+      if @are_referenced[index][:instrument_id].nil?
+        @are_referenced[index] = nil
       end
-
     end
   end
 
