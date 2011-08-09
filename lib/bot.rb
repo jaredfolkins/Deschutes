@@ -186,7 +186,7 @@ class Bot
           document.parse
           puts "    |-- ""#{document.meta}"
           save_and_process_pdf_default_notices(document)
-          save_mortgage_make_reference(document, mortgage, rank = index)
+          save_mortgage_make_reference(document, mortgage, index)
           save_document(document, mortgage)
         end
       end
