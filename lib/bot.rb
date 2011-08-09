@@ -117,6 +117,16 @@ class Bot
     page.body.to_s.match(/No\srecords\sfound/) ? true : false
   end
 
+  def skip_pages(total)
+    total.times do
+      if next_link?(@browser.page)
+        click_next_link(@browser.page)
+      else
+        puts "You have skipped too far, no more pages!"
+      end
+    end
+  end
+
   def run_loop
     while next_link?(@browser.page) do
       #Memprof.trace{
