@@ -185,9 +185,8 @@ class Bot
           document.instrument_id = reference[:instrument_id]
           document.parse
           puts "    |-- ""#{document.meta}"
-          highest_rank = define_highest_rank(index)
           save_and_process_pdf_default_notices(document)
-          save_mortgage_make_reference(document, mortgage, highest_rank)
+          save_mortgage_make_reference(document, mortgage, rank = index)
           save_document(document, mortgage)
         end
       end
@@ -221,12 +220,12 @@ class Bot
     MortgageDeed.create(:mortgage_volpage => mortgage.id.to_s, :deed_volpage => document.id.to_s)
   end
 
-  def save_mortgage_make_reference(document, mortgage, highest_rank)
+  def save_mortgage_make_reference(document, mortgage, rank)
     if MortgageMakeReference.exists?(:mortgage_volpage => mortgage.id.to_s, :document_volpage => document.id.to_s)
       relation = MortgageMakeReference.find_by_mortgage_volpage_and_document_volpage(mortgage.id.to_s, document.id.to_s)
-      relation.update_attribute(:highest_rank, highest_rank)
+      relation.update_attribute(:rank, rank)
     else
-      MortgageMakeReference.create(:mortgage_volpage => mortgage.id.to_s, :document_volpage => document.id.to_s, :highest_rank => highest_rank)
+      MortgageMakeReference.create(:mortgage_volpage => mortgage.id.to_s, :document_volpage => document.id.to_s, :rank => rank)
     end
   end
 

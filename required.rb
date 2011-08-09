@@ -9,7 +9,7 @@ require 'yaml'
 require 'active_record'
 require 'mechanize'
 require 'nokogiri'
-require 'htmlentities'
+#require 'htmlentities' TODO: confirm application works and remove
 require 'mysql'
 
 # required files
