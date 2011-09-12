@@ -22,8 +22,8 @@ class Bot
     #@browser = Mechanize.new { |a| a.log = Logger.new(BROWSER_LOG_FILE) }
     #@browser_two = Mechanize.new { |a| a.log = Logger.new(BROWSER_TWO_LOG_FILE) }
 
-    @browser = Mechanize.new 
-    @browser_two = Mechanize.new 
+    @browser = Mechanize.new
+    @browser_two = Mechanize.new
 
     @browser.max_history = 10
     @browser_two.max_history = 10
@@ -231,12 +231,12 @@ class Bot
 
   def save_and_process_pdf_default_notices(document)
     if document.subtype.match(/DEF.-.Notice\sof\sDefault\s&\sElection\sto\sSell/)
-      #delete_files_from_dirs
+      delete_files_from_dirs
       document.pdf_file = get_document_pdf(document.pdf_url)
       document.save_pdf_file
-      #convert_pdf_to_png(document)
-      #convert_png_to_txt(document)
-      #save_pdf_output_to_database(document)
+      convert_pdf_to_png(document)
+      convert_png_to_txt(document)
+      save_pdf_output_to_database(document)
     end
   end
 
@@ -271,25 +271,30 @@ class Bot
   end
 
   def convert_pdf_to_png(document)
-    system "convert -quiet -density 300 ./tmp/#{document.id}.pdf -depth 8 ./tmp/#{document.id}.png 2>/dev/null"
+    tmp_pdf = CURRENT_DIR + "/../storage/pdf/#{document.id}.pdf"
+    tmp_tiff = CURRENT_DIR + "/../storage/tmp/#{document.id}.tiff"
+    system "convert -quiet -density 300 #{tmp_pdf} -depth 16 #{tmp_tiff} 2>/dev/null"
   end
 
   def convert_png_to_txt(document)
-    Dir.glob("./tmp/*.png") do |file|
-      system "tesseract #{file} ./tmp/#{document.id}"
-      system "touch ./storage/txt/#{document.id}.txt"
-      system "cat ./tmp/#{document.id}.txt >> ./storage/txt/#{document.id}.txt"
+    tmp_dir = "#{CURRENT_DIR}/../storage/tmp/"
+    txt_dir = "#{CURRENT_DIR}/../storage/txt/"
+    Dir.glob("#{tmp_dir}*.tiff") do |file|
+      system "tesseract #{file} #{tmp_dir}#{document.id}"
+      system "touch #{txt_dir}#{document.id}.txt"
+      system "cat #{tmp_dir}#{document.id}.txt >> #{txt_dir}#{document.id}.txt"
     end
   end
 
   def save_pdf_output_to_database(document)
-    File.open("./storage/txt/#{document.id}.txt", "rb") do | file |
+    txt_dir = "#{CURRENT_DIR}/../storage/txt/"
+    File.open("#{txt_dir}#{document.id}.txt", "rb") do | file |
       Pdf.create(:volpage => document.id.to_s, :content => file.read) unless Pdf.exists?(:volpage => document.id.to_s)
     end
   end
 
   def delete_files_from_dirs
-    system "rm ./tmp/*"
-    system "rm ./storage/txt/*"
+    system "rm -f #{CURRENT_DIR}/../storage/tmp/*"
+    system "rm -f #{CURRENT_DIR}/../storage/txt/*"
   end
 end
