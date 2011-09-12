@@ -6,11 +6,12 @@ class Bot
   BROWSER_LOG_FILE = CURRENT_DIR + "/../log/browser.log"
   BROWSER_TWO_LOG_FILE = CURRENT_DIR + "/../log/browser_two.log"
 
-  attr_reader :browser, :browser_two, :profiler
+  attr_reader :browser, :browser_two, :profiler, :image_type
 
   def initialize
     setup_db
     setup_browser
+    @image_type = get_image_type
   end
 
   def setup_db
@@ -272,24 +273,42 @@ class Bot
 
   def convert_pdf_to_png(document)
     tmp_pdf = CURRENT_DIR + "/../storage/pdf/#{document.id}.pdf"
-    tmp_tiff = CURRENT_DIR + "/../storage/tmp/#{document.id}.tiff"
-    system "convert -quiet -density 300 #{tmp_pdf} -depth 16 #{tmp_tiff} 2>/dev/null"
+    tmp_image = CURRENT_DIR + "/../storage/tmp/#{document.id}.#{@image_type}"
+    system "convert -quiet -density 300 #{tmp_pdf} -depth 16 #{tmp_image} 2>/dev/null"
   end
 
   def convert_png_to_txt(document)
     tmp_dir = "#{CURRENT_DIR}/../storage/tmp/"
     txt_dir = "#{CURRENT_DIR}/../storage/txt/"
-    Dir.glob("#{tmp_dir}*.tiff") do |file|
+    Dir.glob("#{tmp_dir}*.#{@image_type}") do |file|
       system "tesseract #{file} #{tmp_dir}#{document.id}"
       system "touch #{txt_dir}#{document.id}.txt"
       system "cat #{tmp_dir}#{document.id}.txt >> #{txt_dir}#{document.id}.txt"
     end
   end
 
+  def get_image_type
+    os = `uname -a`
+    if linux?(os)
+      'png'
+    elsif mac?(os)
+      'tiff'
+    end
+  end
+
+  def linux?(os)
+    os.to_s.match(/Linux/) ? true : false
+  end
+
+  def mac?(os)
+    os.to_s.match(/Darwin/) ? true : false
+  end
+
   def save_pdf_output_to_database(document)
     txt_dir = "#{CURRENT_DIR}/../storage/txt/"
     File.open("#{txt_dir}#{document.id}.txt", "rb") do | file |
-      Pdf.create(:volpage => document.id.to_s, :content => file.read) unless Pdf.exists?(:volpage => document.id.to_s)
+      pdf = Pdf.find_or_initialize_by_volpage(document.id.to_s)
+      pdf.update_attributes({ :content => file.read })
     end
   end
 
