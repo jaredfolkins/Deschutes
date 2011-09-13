@@ -281,9 +281,11 @@ class Bot
     tmp_dir = "#{CURRENT_DIR}/../storage/tmp/"
     txt_dir = "#{CURRENT_DIR}/../storage/txt/"
     Dir.glob("#{tmp_dir}*.#{@image_type}") do |file|
-      system "tesseract #{file} #{tmp_dir}#{document.id}"
-      system "touch #{txt_dir}#{document.id}.txt"
-      system "cat #{tmp_dir}#{document.id}.txt >> #{txt_dir}#{document.id}.txt"
+      txt_document = "#{txt_dir}#{document.id}.txt"
+      `tesseract #{file} #{tmp_dir}#{document.id}`
+      `rm #{txt_document}` if File.exists?(txt_document)
+      `touch #{txt_document}`
+      `cat #{tmp_dir}#{document.id}.txt >> #{txt_document}`
     end
   end
 
@@ -314,6 +316,6 @@ class Bot
 
   def delete_files_from_dirs
     system "rm -f #{CURRENT_DIR}/../storage/tmp/*"
-    system "rm -f #{CURRENT_DIR}/../storage/txt/*"
+    #system "rm -f #{CURRENT_DIR}/../storage/txt/*"
   end
 end
