@@ -292,7 +292,7 @@ class Bot
   def get_image_type
     os = `uname -a`
     if linux?(os)
-      'png'
+      'tiff'
     elsif mac?(os)
       'tiff'
     end
