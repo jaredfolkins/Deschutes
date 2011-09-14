@@ -1,7 +1,5 @@
 class DefaultSales < ActiveRecord::Base
 
-  #attr_accessor :sale_date
-
   def parse_date(file)
     target = get_target_date_string(file)
     unless target.nil?
