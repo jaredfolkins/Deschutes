@@ -309,10 +309,13 @@ class Bot
   def save_pdf_output_to_database(document)
     txt_dir = "#{CURRENT_DIR}/../storage/txt/"
     File.open("#{txt_dir}#{document.id}.txt", "rb") do | file |
-      pdf = Pdf.find_or_initialize_by_volpage(document.id.to_s)
-      pdf.update_attributes({ :content => file.read })
+      pdf = DefPdf.find_or_initialize_by_volpage(document.id.to_s)
+      sale_date = pdf.parse_date(file)
+      puts sale_date
+      pdf.update_attributes({ :content => file.read, :sale_date => sale_date })
     end
   end
+
 
   def delete_files_from_dirs
     system "rm -f #{CURRENT_DIR}/../storage/tmp/*"

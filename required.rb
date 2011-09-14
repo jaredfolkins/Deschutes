@@ -11,6 +11,7 @@ require 'mechanize'
 require 'nokogiri'
 #require 'htmlentities' TODO: confirm application works and remove
 require 'mysql'
+require 'chronic'
 
 # required files
 require'./lib/bot'
@@ -18,4 +19,4 @@ require'./lib/storage'
 require'./lib/document'
 require'./lib/mortgage_make_reference'
 require'./lib/mortgage_deed'
-require'./lib/pdf'
+require'./lib/def_pdf'

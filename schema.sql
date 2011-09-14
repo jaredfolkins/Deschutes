@@ -29,14 +29,15 @@ deed_id varchar(100) not null,
 address varchar(100) not null
 );
 
-create table pdfs (
+create table def_pdfs (
 id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 volpage varchar(100) unique not null,
-content text not null
+content text not null,
+sale_date date
 );
 
 create table confidential_documents (
 id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 volpage varchar(100) unique not null,
 instrument_id varchar(100)
-)
+);
