@@ -311,7 +311,6 @@ class Bot
     File.open("#{txt_dir}#{document.id}.txt", "rb") do | file |
       pdf = DefPdf.find_or_initialize_by_volpage(document.id.to_s)
       sale_date = pdf.parse_date(file)
-      puts sale_date
       pdf.update_attributes({ :content => file.read, :sale_date => sale_date })
     end
   end
