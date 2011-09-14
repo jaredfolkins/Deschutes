@@ -29,10 +29,9 @@ deed_id varchar(100) not null,
 address varchar(100) not null
 );
 
-create table def_pdfs (
+create table default_sales (
 id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 volpage varchar(100) unique not null,
-content text not null,
 sale_date date
 );
 

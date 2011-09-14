@@ -14,9 +14,11 @@ require 'mysql'
 require 'chronic'
 
 # required files
+require'./lib/dbconnection'
 require'./lib/bot'
 require'./lib/storage'
 require'./lib/document'
 require'./lib/mortgage_make_reference'
 require'./lib/mortgage_deed'
-require'./lib/def_pdf'
+require'./lib/default_sale'
+require'./lib/convert'

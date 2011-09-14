@@ -1,22 +1,15 @@
-class Bot
+class Bot < Dbconnection
 
   HOST = 'http://recordings.co.deschutes.or.us/'
-  CURRENT_DIR = File.dirname(__FILE__)
-  DB_FILE = CURRENT_DIR + '/../db/database.yml'
   BROWSER_LOG_FILE = CURRENT_DIR + "/../log/browser.log"
   BROWSER_TWO_LOG_FILE = CURRENT_DIR + "/../log/browser_two.log"
 
-  attr_reader :browser, :browser_two, :profiler, :image_type
+  attr_reader :browser, :browser_two, :profiler
+
 
   def initialize
     setup_db
     setup_browser
-    @image_type = get_image_type
-  end
-
-  def setup_db
-    dbconfig = YAML::load(File.open(DB_FILE))
-    ActiveRecord::Base.establish_connection(dbconfig)
   end
 
   def setup_browser
@@ -232,12 +225,9 @@ class Bot
 
   def save_and_process_pdf_default_notices(document)
     if document.subtype.match(/DEF.-.Notice\sof\sDefault\s&\sElection\sto\sSell/)
-      delete_files_from_dirs
+      #delete_files_from_dirs
       document.pdf_file = get_document_pdf(document.pdf_url)
       document.save_pdf_file
-      convert_pdf_to_png(document)
-      convert_png_to_txt(document)
-      save_pdf_output_to_database(document)
     end
   end
 
@@ -271,53 +261,4 @@ class Bot
     @browser.get(HOST + pdf_url)
   end
 
-  def convert_pdf_to_png(document)
-    tmp_pdf = CURRENT_DIR + "/../storage/pdf/#{document.id}.pdf"
-    tmp_image = CURRENT_DIR + "/../storage/tmp/#{document.id}.#{@image_type}"
-    system "convert -quiet -despeckle -contrast -density 600 #{tmp_pdf} -depth 16 #{tmp_image} 2>/dev/null"
-  end
-
-  def convert_png_to_txt(document)
-    tmp_dir = "#{CURRENT_DIR}/../storage/tmp/"
-    txt_dir = "#{CURRENT_DIR}/../storage/txt/"
-    Dir.glob("#{tmp_dir}*.#{@image_type}") do |file|
-      txt_document = "#{txt_dir}#{document.id}.txt"
-      `tesseract #{file} #{tmp_dir}#{document.id}`
-      `rm #{txt_document}` if File.exists?(txt_document)
-      `touch #{txt_document}`
-      `cat #{tmp_dir}#{document.id}.txt >> #{txt_document}`
-    end
-  end
-
-  def get_image_type
-    os = `uname -a`
-    if linux?(os)
-      'tiff'
-    elsif mac?(os)
-      'tiff'
-    end
-  end
-
-  def linux?(os)
-    os.to_s.match(/Linux/) ? true : false
-  end
-
-  def mac?(os)
-    os.to_s.match(/Darwin/) ? true : false
-  end
-
-  def save_pdf_output_to_database(document)
-    txt_dir = "#{CURRENT_DIR}/../storage/txt/"
-    File.open("#{txt_dir}#{document.id}.txt", "rb") do | file |
-      pdf = DefPdf.find_or_initialize_by_volpage(document.id.to_s)
-      sale_date = pdf.parse_date(file)
-      pdf.update_attributes({ :content => file.read, :sale_date => sale_date })
-    end
-  end
-
-
-  def delete_files_from_dirs
-    `rm -f #{CURRENT_DIR}/../storage/tmp/*`
-    #system "rm -f #{CURRENT_DIR}/../storage/txt/*"
-  end
 end

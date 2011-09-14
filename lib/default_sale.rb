@@ -1,4 +1,4 @@
-class DefPdf < ActiveRecord::Base
+class DefaultSales < ActiveRecord::Base
 
   #attr_accessor :sale_date
 

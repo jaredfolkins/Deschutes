@@ -1,4 +1,4 @@
-class Storage 
+class Storage
 
   VERY_HEALTHY = 3
   HEALTHY = 2
