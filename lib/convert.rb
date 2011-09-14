@@ -6,6 +6,17 @@ class Convert < Dbconnection
 
   def run
     setup_db
+    if confirm_single_process
+      convert!
+    end
+  end
+
+  def confirm_single_process
+    #basically, we should only be seeing the current running process, any more, and we want to quit
+    `ps -ef | pgrep -fl "[w]orker_convert.rb"`.length <= 29 ?  true : false
+  end
+
+  def convert!
     Dir.glob("#{CURRENT_DIR}/../storage/pdf/*.pdf") do |path_to_pdf|
       puts path_to_pdf
       delete_files_from_dirs
