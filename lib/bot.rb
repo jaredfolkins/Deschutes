@@ -274,7 +274,7 @@ class Bot
   def convert_pdf_to_png(document)
     tmp_pdf = CURRENT_DIR + "/../storage/pdf/#{document.id}.pdf"
     tmp_image = CURRENT_DIR + "/../storage/tmp/#{document.id}.#{@image_type}"
-    system "convert -quiet -density 300 #{tmp_pdf} -depth 16 #{tmp_image} 2>/dev/null"
+    system "convert -quiet -despeckle -contrast -density 600 #{tmp_pdf} -depth 16 #{tmp_image} 2>/dev/null"
   end
 
   def convert_png_to_txt(document)
@@ -317,7 +317,7 @@ class Bot
 
 
   def delete_files_from_dirs
-    system "rm -f #{CURRENT_DIR}/../storage/tmp/*"
+    `rm -f #{CURRENT_DIR}/../storage/tmp/*`
     #system "rm -f #{CURRENT_DIR}/../storage/txt/*"
   end
 end
