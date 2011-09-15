@@ -13,7 +13,10 @@ class Convert < Dbconnection
 
   def confirm_single_process
     #basically, we should only be seeing the current running process, any more, and we want to quit
-    `ps -ef | pgrep -fl [*c]onvert.rb`.length <= 29 ?  true : false
+    match = `ps -ef | pgrep -fl worker_[c]onvert.rb | wc -l`.match(/\s*(1)\s*/)
+    unless match.nil?
+      match[1] == '1' ? true : false
+    end
   end
 
   def convert!
