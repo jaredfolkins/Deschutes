@@ -13,7 +13,7 @@ class Convert < Dbconnection
 
   def confirm_single_process
     #basically, we should only be seeing the current running process, any more, and we want to quit
-    `ps -ef | pgrep -fl "[w]orker_convert.rb"`.length <= 29 ?  true : false
+    `ps -ef | pgrep -fl "[c]onvert.rb"`.length <= 29 ?  true : false
   end
 
   def convert!
