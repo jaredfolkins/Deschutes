@@ -2,7 +2,7 @@
 Dir.chdir "#{File.dirname(__FILE__)}"
 
 # setup file of required files
-require './required.rb'
+require 'required.rb'
 
 bot = Bot.new
 bot.submit_search_form
