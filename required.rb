@@ -9,9 +9,9 @@ require 'yaml'
 require 'active_record'
 require 'mechanize'
 require 'nokogiri'
-#require 'htmlentities' TODO: confirm application works and remove
 require 'mysql'
 require 'chronic'
+require 'choice'
 
 # required files
 require 'lib/dbconnection'

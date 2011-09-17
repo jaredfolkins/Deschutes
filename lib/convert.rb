@@ -11,6 +11,7 @@ class Convert < Dbconnection
     end
   end
 
+  #TODO I probably should do something with File.flock() here
   def confirm_single_process
     #basically, we should only be seeing the current running process, any more, and we want to quit
     match = `ps -ef | pgrep -fl worker_[c]onvert.rb | wc -l`.match(/\s*(1)\s*/)

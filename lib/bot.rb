@@ -8,8 +8,20 @@ class Bot < Dbconnection
 
 
   def initialize
+    setup_arguments
     setup_db
     setup_browser
+  end
+
+  def setup_arguments
+    Choice.options do
+      header 'Deschutes WebCrawler Options:'
+      separator 'Optional:'
+      option :year do
+        long '--year=YEAR'
+        desc 'Crawl through documents based by year'
+      end
+    end
   end
 
   def setup_browser
@@ -54,10 +66,15 @@ class Bot < Dbconnection
     @browser.get(HOST + "Search.asp")
   end
 
+  def get_supplied_year
+
+  end
+
   def submit_search_form
     emulate_javascript_set_cookie
     search_form = @browser.page.form("frmMain")
     search_form.cmbTypeGroups = 1
+    search_form.field_with(:name => 'dfYear').value = Choice.choices[:year]
     search_form.radiobuttons_with(:name => 'rbDocTypeOpt')[1].check
     search_form.radiobuttons_with(:name => 'rbOrder')[1].check
     search_form.radiobuttons_with(:name => 'rbNameType')[1].check
