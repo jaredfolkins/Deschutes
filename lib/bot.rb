@@ -271,7 +271,11 @@ class Bot < Dbconnection
 
   def next_link?(page)
     url = page.body.to_s.match(/<a href=(Results\.asp\?START=\d+)>Next/i)
-    page.link_with(:href => url[1]) ? true : false
+    if url.nil?
+      false
+    elsif
+      page.link_with(:href => url[1]) ? true : false
+    end
   end
 
   def get_document_pdf(pdf_url)
