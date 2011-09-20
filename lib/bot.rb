@@ -66,10 +66,6 @@ class Bot < Dbconnection
     @browser.get(HOST + "Search.asp")
   end
 
-  def get_supplied_year
-
-  end
-
   def submit_search_form
     emulate_javascript_set_cookie
     search_form = @browser.page.form("frmMain")
@@ -146,6 +142,13 @@ class Bot < Dbconnection
         click_next_link(page)
       #}
     end
+    shutdown_sequence(@browser.page)
+  end
+
+  def shutdown_sequence(page)
+    puts 'Shutdown Activated!'
+    iterate_search_page(page)
+    puts 'Shutdown Complete!'
   end
 
   def traverse_tree_from_page(body)
@@ -271,7 +274,11 @@ class Bot < Dbconnection
 
   def next_link?(page)
     url = page.body.to_s.match(/<a href=(Results\.asp\?START=\d+)>Next/i)
-    page.link_with(:href => url[1]) ? true : false
+    if url.nil?
+      false
+    else
+      page.link_with(:href => url[1]) ? true : false
+    end
   end
 
   def get_document_pdf(pdf_url)
