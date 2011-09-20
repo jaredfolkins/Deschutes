@@ -23,12 +23,6 @@ mortgage_volpage varchar(100) not null,
 deed_volpage varchar(100) not null
 );
 
-create table address (
-id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-deed_id varchar(100) not null,
-address varchar(100) not null
-);
-
 create table default_sales (
 id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 volpage varchar(100) unique not null,
@@ -39,4 +33,11 @@ create table confidential_documents (
 id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 volpage varchar(100) unique not null,
 instrument_id varchar(100)
+);
+
+create table dial_records (
+id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+instrument int(11) NOT NULL,
+volpage varchar(100) unique NOT NULL,
+address varchar(150) NOT NULL
 );
