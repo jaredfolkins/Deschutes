@@ -151,16 +151,6 @@ class Bot < Dbconnection
     puts 'Shutdown Complete!'
   end
 
-  def traverse_tree_from_page(body)
-      document = Storage.new(body).parse
-      if document.tables.count > 1
-        puts "\n+ #{document.meta}\n|_"
-        mortgage = get_mortgage(document)
-        save_mortgage_and_related_documents(mortgage)
-        save_related_documents(mortgage)
-        save_mortgage_deed(mortgage)
-      end
-  end
 
   def iterate_search_page(page)
     page.links_with(:href => /Detail.asp\?INSTRUMENT_ID=\d/).each_with_index do | link, index |
@@ -179,16 +169,59 @@ class Bot < Dbconnection
     end
   end
 
-  def save_mortgage_and_related_documents(mortgage)
-    puts "  + #{mortgage.meta}"
-    Document.create(
-      :volpage => mortgage.id,
-      :recording_date => mortgage.recording_date,
-      :doctype => mortgage.type,
-      :subtype => mortgage.subtype,
-      :instrument_id => mortgage.instrument_id) unless Document.exists?(:volpage => mortgage.id)
+
+  def define_highest_rank(index)
+    index == 0 ? true : false
   end
 
+
+  def click_next_link(page)
+    url = page.body.to_s.match(/<a href=(Results\.asp\?START=\d+)>Next/i)
+    puts "\n=========NEXT: (#{url}) ==========\n"
+    page.link_with(:href => url[1]).click
+    url = nil
+  end
+
+  def go_to_page(instrument_id)
+    begin
+      @browser.get(HOST + "Detail.asp?INSTRUMENT_ID=#{instrument_id}")
+      @browser.page.body
+    rescue
+      puts "go_to_page() failed with #{instrument_id}"
+      nil
+    end
+  end
+
+  def search_results_page?(page)
+    page.body.to_s.match(/<b>Search\sResults<\/b>/i) ? true : false
+  end
+
+  def next_link?(page)
+    url = page.body.to_s.match(/<a href=(Results\.asp\?START=\d+)>Next/i)
+    if url.nil?
+      false
+    else
+      page.link_with(:href => url[1]) ? true : false
+    end
+  end
+
+  def get_document_pdf(pdf_url)
+    @browser.get(HOST + pdf_url)
+  end
+
+  def traverse_tree_from_page(body)
+      document = Storage.new(body).parse
+      if document.tables.count > 1
+        puts "\n+ #{document.meta}\n|_"
+        mortgage = get_mortgage(document)
+        save_mortgage(mortgage)
+        save_related_documents(mortgage)
+        save_mortgage_deed(mortgage)
+      end
+  end
+
+  # save methods
+  #
   def save_related_documents(mortgage)
     unless mortgage.make_reference.nil?
       puts "  |_"
@@ -207,8 +240,14 @@ class Bot < Dbconnection
     end
   end
 
-  def define_highest_rank(index)
-    index == 0 ? true : false
+  def save_mortgage(mortgage)
+    puts "  + #{mortgage.meta}"
+    Document.create(
+      :volpage => mortgage.id,
+      :recording_date => mortgage.recording_date,
+      :doctype => mortgage.type,
+      :subtype => mortgage.subtype,
+      :instrument_id => mortgage.instrument_id) unless Document.exists?(:volpage => mortgage.id)
   end
 
   def save_document(document,mortgage)
@@ -250,39 +289,4 @@ class Bot < Dbconnection
       document.save_pdf_file
     end
   end
-
-  def click_next_link(page)
-    url = page.body.to_s.match(/<a href=(Results\.asp\?START=\d+)>Next/i)
-    puts "\n=========NEXT: (#{url}) ==========\n"
-    page.link_with(:href => url[1]).click
-    url = nil
-  end
-
-  def go_to_page(instrument_id)
-    begin
-      @browser.get(HOST + "Detail.asp?INSTRUMENT_ID=#{instrument_id}")
-      @browser.page.body
-    rescue
-      puts "go_to_page() failed with #{instrument_id}"
-      nil
-    end
-  end
-
-  def search_results_page?(page)
-    page.body.to_s.match(/<b>Search\sResults<\/b>/i) ? true : false
-  end
-
-  def next_link?(page)
-    url = page.body.to_s.match(/<a href=(Results\.asp\?START=\d+)>Next/i)
-    if url.nil?
-      false
-    else
-      page.link_with(:href => url[1]) ? true : false
-    end
-  end
-
-  def get_document_pdf(pdf_url)
-    @browser.get(HOST + pdf_url)
-  end
-
 end
