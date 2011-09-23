@@ -37,7 +37,7 @@ instrument_id varchar(100)
 
 create table dial_records (
 id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-instrument int(11) NOT NULL,
+account_number int(11) NOT NULL,
 volpage varchar(100) unique NOT NULL,
 address varchar(150) NOT NULL
 );

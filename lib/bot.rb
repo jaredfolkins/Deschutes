@@ -9,17 +9,69 @@ class Bot < Dbconnection
 
   def initialize
     setup_arguments
+    check_for_criteria_mismatch
     setup_db
     setup_browser
+    submit_search_form
   end
+
+  def run
+    logic_path
+  end
+
+  def logic_path
+    case
+    when Choice.choices[:page]
+      traverse_tree_from_page go_to_page(Choice.choices[:page])
+      puts 'Complete!'
+    when Choice.choices[:skip]
+      skip_pages(Choice.choices[:skip])
+      run_loop
+    else
+      run_loop
+    end
+  end
+
+  def run_loop
+    while next_link?(@browser.page) do
+     Choice.choices[:trace] ? Memprof.trace{cycle} : cycle
+    end
+    shutdown_sequence(@browser.page)
+  end
+
+  def cycle
+    page = @browser.page
+    iterate_search_page(page)
+    click_next_link(page)
+  end
+
+  def check_for_criteria_mismatch
+    if Choice.choices[:page] && Choice.choices[:year]
+      puts 'ERROR (Criteria Mismatch): You cannot have both PAGE and YEAR specified'
+      exit 1
+    end
+  end
+
 
   def setup_arguments
     Choice.options do
-      header 'Deschutes WebCrawler Options:'
+      header 'Deschutes County Records WebCrawler Options:'
       separator 'Optional:'
+      option :page do
+        long '--page=PAGE'
+        desc 'Crawl a specific page\'s tree. PAGE takes precedence over SKIP.'
+      end
+      option :skip do
+        long '--skip=SKIP'
+        desc 'Skip forward a certain number of pages on the search results page.'
+      end
       option :year do
         long '--year=YEAR'
-        desc 'Crawl through documents based by year'
+        desc 'Crawl through documents based by year.'
+      end
+      option :trace do
+        long '--trace=TRACE'
+        desc 'Enable Memprof to profile code.'
       end
     end
   end
@@ -56,8 +108,7 @@ class Bot < Dbconnection
 
     @browser.request_headers = headers
     @browser_two.request_headers = headers
-
-  end
+end
 
   # In order for your cookie to be set correctly
   # You first have to call /Login.asp
@@ -125,7 +176,7 @@ class Bot < Dbconnection
   end
 
   def skip_pages(total)
-    total.times do
+    total.to_i.times do
       if next_link?(@browser.page)
         click_next_link(@browser.page)
       else
@@ -134,16 +185,6 @@ class Bot < Dbconnection
     end
   end
 
-  def run_loop
-    while next_link?(@browser.page) do
-      #Memprof.trace{
-        page = @browser.page
-        iterate_search_page(page)
-        click_next_link(page)
-      #}
-    end
-    shutdown_sequence(@browser.page)
-  end
 
   def shutdown_sequence(page)
     puts 'Shutdown Activated!'

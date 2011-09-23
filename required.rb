@@ -22,3 +22,6 @@ require 'lib/mortgage_make_reference'
 require 'lib/mortgage_deed'
 require 'lib/default_sale'
 require 'lib/convert'
+require 'lib/bendmaps'
+require 'lib/dial_record'
+
