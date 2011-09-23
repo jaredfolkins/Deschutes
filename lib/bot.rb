@@ -52,14 +52,13 @@ class Bot < Dbconnection
     end
   end
 
-
   def setup_arguments
     Choice.options do
       header 'Deschutes County Records WebCrawler Options:'
       separator 'Optional:'
       option :page do
         long '--page=PAGE'
-        desc 'Crawl a specific page\'s tree. PAGE takes precedence over SKIP.'
+        desc 'Crawl a specific page\'s tree. PAGE takes precedence over SKIP. Also, error will occur if YEAR is set.'
       end
       option :skip do
         long '--skip=SKIP'
