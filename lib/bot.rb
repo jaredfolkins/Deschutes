@@ -58,7 +58,7 @@ class Bot < Dbconnection
       separator 'Optional:'
       option :page do
         long '--page=PAGE'
-        desc 'Crawl a specific page\'s tree. PAGE takes precedence over SKIP. Also, error will occur if YEAR is set.'
+        desc "Crawl a specific page's tree. PAGE takes precedence over SKIP. Errors out if YEAR is set."
       end
       option :skip do
         long '--skip=SKIP'
