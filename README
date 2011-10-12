@@ -3,45 +3,41 @@ Copyright Jared Folkins 2011
 
 Description:
 
-This is a web scraping program I wrote to mine the
-deschutes county website public foreclosure records.
-I use this data to determine how many foreclosures
-are coming to market and understand better buying
-opportunities.
+  This is a web scraping program I wrote to mine the
+  deschutes county website public foreclosure records.
+  I use this data to determine how many foreclosures
+  are coming to market and understand better buying
+  opportunities.
+
+Options:
+
+  --page=PAGE                  Crawl a specific page's tree. PAGE takes precedence over SKIP. Also, error will occur if YEAR is set.
+  --skip=SKIP                  Skip forward a certain number of pages on the search results page.
+  --year=YEAR                  Crawl through documents based by year.
+  --trace=TRACE                Enable Memprof to profile code.
 
 Examples:
 
-$ruby worker_bot.rb -h
+  $ruby worker_bot.rb -h
 
-Usage: worker_bot.rb
-Deschutes County Records WebCrawler Options:
-Optional:
-        --page=PAGE                  Crawl a specific page's tree. PAGE takes precedence over SKIP. Also, error will occur if YEAR is set.
-        --skip=SKIP                  Skip forward a certain number of pages on the search results page.
-        --year=YEAR                  Crawl through documents based by year.
-        --trace=TRACE                Enable Memprof to profile code.
+Desciptions:
 
+--page: will go to the page with instrument_id 920850
 
-#PAGE
-#will go to the page with instrument_id 920850
+  $ ruby worker_bot.rb --page 920850
 
-$ ruby worker_bot.rb --page 920850
+--skip: will skip the first 15 pages of the search result
 
-#SKIP
-#will skip the first 15 pages of the search result
+  $ ruby worker_bot.rb --skip 15
 
-$ ruby worker_bot.rb --skip 15
+--year: only crawl the records for 2006
 
-#YEAR
-#Only crawl the records for 2006
+  $ ruby worker_bot.rb --year 2006
 
-$ ruby worker_bot.rb --year 2006
+--trace: enable memprof
 
-#TRACE
-#enable memprof
-$ ruby worker_bot.rb --trace true
+  $ ruby worker_bot.rb --trace true
 
-#Mix and Match
-#search only the year 2001 and skip 5 pages
+Mix and Match: search only the year 2001 and skip 5 pages
 
-$ ruby worker_bot.rb --year 2001 --skip 5
+  $ ruby worker_bot.rb --year 2001 --skip 5

@@ -4,15 +4,34 @@ class Bot < Dbconnection
   BROWSER_LOG_FILE = CURRENT_DIR + "/../log/browser.log"
   BROWSER_TWO_LOG_FILE = CURRENT_DIR + "/../log/browser_two.log"
 
-  attr_reader :browser, :browser_two, :profiler
-
+  attr_reader :browser, :browser_two, :profiler, :limit, :limit_count
 
   def initialize
     setup_arguments
+    setup_limit
     check_for_criteria_mismatch
     setup_db
     setup_browser
     submit_search_form
+  end
+
+  def setup_limit
+    if Choice.choices[:limit]
+      @limit_count =  1
+      @limit = Choice.choices[:limit]
+      puts "Limit: #{@limit} || Limit Count: #{@limit_count}"
+    end
+  end
+
+  def click_next_if_limit_is_not_reached(page)
+    puts "Limit: #{@limit} || Limit Count: #{@limit_count}"
+    if @limit.to_i == @limit_count.to_i
+      puts 'Limit Reached Shutting Down!'
+      exit 1
+    else
+      @limit_count += 1
+      click_next_link(page)
+    end
   end
 
   def run
@@ -21,14 +40,14 @@ class Bot < Dbconnection
 
   def logic_path
     case
-    when Choice.choices[:page]
-      traverse_tree_from_page go_to_page(Choice.choices[:page])
-      puts 'Complete!'
-    when Choice.choices[:skip]
-      skip_pages(Choice.choices[:skip])
-      run_loop
-    else
-      run_loop
+      when Choice.choices[:page]
+        traverse_tree_from_page go_to_page(Choice.choices[:page])
+        puts 'Complete!'
+      when Choice.choices[:skip]
+        skip_pages(Choice.choices[:skip])
+        run_loop
+      else
+        run_loop
     end
   end
 
@@ -42,7 +61,7 @@ class Bot < Dbconnection
   def cycle
     page = @browser.page
     iterate_search_page(page)
-    click_next_link(page)
+    click_next_if_limit_is_not_reached(page)
   end
 
   def check_for_criteria_mismatch
@@ -67,6 +86,10 @@ class Bot < Dbconnection
       option :year do
         long '--year=YEAR'
         desc 'Crawl through documents based by year.'
+      end
+      option :limit do
+        long '--limit=LIMIT'
+        desc 'Limit the total number of search result pages to crawl. (primary used to refresh the dataset without having to crawl the whole site)'
       end
       option :trace do
         long '--trace=TRACE'
@@ -107,7 +130,7 @@ class Bot < Dbconnection
 
     @browser.request_headers = headers
     @browser_two.request_headers = headers
-end
+  end
 
   # In order for your cookie to be set correctly
   # You first have to call /Login.asp
@@ -183,7 +206,6 @@ end
       end
     end
   end
-
 
   def shutdown_sequence(page)
     puts 'Shutdown Activated!'
