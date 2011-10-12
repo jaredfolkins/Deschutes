@@ -14,6 +14,7 @@ Options:
   --page=PAGE                  Crawl a specific page's tree. PAGE takes precedence over SKIP. Also, error will occur if YEAR is set.
   --skip=SKIP                  Skip forward a certain number of pages on the search results page.
   --year=YEAR                  Crawl through documents based by year.
+  --limit=LIMIT                Limit the total number of search result pages to crawl. (primary used to refresh the dataset without having to crawl the whole site)
   --trace=TRACE                Enable Memprof to profile code.
 
 Examples:
@@ -31,6 +32,10 @@ Desciptions:
   $ ruby worker_bot.rb --skip 15
 
 --year: only crawl the records for 2006
+
+  $ ruby worker_bot.rb --year 2006
+
+--limit: only crawl N number of search result pages 
 
   $ ruby worker_bot.rb --year 2006
 
