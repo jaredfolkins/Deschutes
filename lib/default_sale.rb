@@ -3,8 +3,9 @@ class DefaultSales < ActiveRecord::Base
   def self.parse_date(file)
     target = get_target_date_string(file)
     unless target.nil?
-      puts "Target:"
-      target.to_s.each_line { |line| puts "#{line}" }
+      puts "\tTarget:"
+      target.to_s.each_line { |line| puts "\t#{line}" }
+      puts "\n"
     end
     unless target.nil?
       words = get_date_words(target).to_s

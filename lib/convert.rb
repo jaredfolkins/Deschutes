@@ -4,9 +4,24 @@ class Convert < Dbconnection
   TXT_PATH = CURRENT_DIR + "/../storage/convert/txt/"
   TMP_PATH = CURRENT_DIR + "/../storage/convert/tmp/"
   FAIL_PATH = CURRENT_DIR + "/../storage/convert/fail/"
-  DPI = [150, 300, 450, 600]
+  DPI = [150, 300]
 
   attr_accessor :total_documents, :total_successes
+
+  def initialize
+    setup_arguments
+  end
+
+  def setup_arguments
+    Choice.options do
+      header 'Deschutes County Records PDF Converter Options:'
+      separator 'Optional:'
+      option :year do
+        long '--year=YEAR'
+        desc 'Only convert documents that begin with a certain year.'
+      end
+    end
+  end
 
   def run
     @total_documents = 0
@@ -27,7 +42,8 @@ class Convert < Dbconnection
   end
 
   def convert!
-    Dir.glob("#{CURRENT_DIR}/../storage/pdf/*.pdf") do |path_to_pdf|
+    files = Choice.choices[:year] ? "#{Choice.choices[:year]}*.pdf" : "*.pdf"
+    Dir.glob("#{CURRENT_DIR}/../storage/pdf/#{files}") do |path_to_pdf|
       delete_files_from_dirs
       volpage = parse_volpage_from_filename(path_to_pdf)
       puts "\nVolpage: #{volpage} || Percentage: #{percent_of} || Documents: #{@total_documents} || Successes: #{@total_successes}"
@@ -44,7 +60,7 @@ class Convert < Dbconnection
       convert_image_to_txt(volpage)
       sale_date = parse_and_get_date_from_file(volpage)
       status = sale_date.nil? ? 'Fail   ' : 'Success'
-      puts "Pass: #{index} || Status: #{status} || File: #{volpage}.pdf || Dpi: #{dpi} || Date: #{sale_date}"
+      puts "\n\tPass: #{index} || Status: #{status} || File: #{volpage}.pdf || Dpi: #{dpi} || Date: #{sale_date}"
       break unless sale_date.nil?
     end
 
@@ -60,7 +76,7 @@ class Convert < Dbconnection
 
   def percent_of
     percentage = @total_successes.to_f / @total_documents.to_f * 100.0
-    percentage.to_s[0..1] + "%"
+    percentage.to_s[0..5] + "%"
   end
 
   def move_pdf_to_fail(volpage)

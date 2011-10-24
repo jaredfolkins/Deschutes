@@ -24,12 +24,13 @@ class Bot < Dbconnection
   end
 
   def click_next_if_limit_is_not_reached(page)
-    puts "Limit: #{@limit} || Limit Count: #{@limit_count}"
-    if @limit.to_i == @limit_count.to_i
+    if @limit.to_i >= 1 && @limit.to_i == @limit_count.to_i
+      puts "Limit: #{@limit} || Limit Count: #{@limit_count}"
       puts 'Limit Reached Shutting Down!'
       exit 1
     else
-      @limit_count += 1
+      puts "Limit: #{@limit} || Limit Count: #{@limit_count}"
+      @limit_count.to_i += 1 unless @limit_count.nil?
       click_next_link(page)
     end
   end
