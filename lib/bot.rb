@@ -30,7 +30,7 @@ class Bot < Dbconnection
       exit 1
     else
       puts "Limit: #{@limit} || Limit Count: #{@limit_count}"
-      @limit_count.to_i += 1 unless @limit_count.nil?
+      @limit_count += 1 unless @limit_count.nil?
       click_next_link(page)
     end
   end
