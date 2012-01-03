@@ -248,11 +248,15 @@ class Bot < Dbconnection
   def go_to_page(instrument_id)
     begin
       @browser.get(HOST + "Detail.asp?INSTRUMENT_ID=#{instrument_id}")
-      @browser.page.body
+      confidential_record?(@browser.page) ? nil : @browser.page.body
     rescue
       puts "go_to_page() failed with #{instrument_id}"
       nil
     end
+  end
+
+  def confidential_record?(page)
+    page.body.to_s.match(/<B>CONFIDENTIAL\sRECORD<\/B>/i) ? true : false
   end
 
   def search_results_page?(page)

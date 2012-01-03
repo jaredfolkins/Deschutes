@@ -91,6 +91,7 @@ class Convert < Dbconnection
     pdf = "#{PDF_STAGING}#{volpage}.pdf"
     tmp_image = "#{TMP_PATH}#{volpage}.#{get_image_type}"
     `convert -quiet -density #{dpi.to_s} #{pdf} -depth 16 #{tmp_image} 2>/dev/null`
+    #`convert -quiet -density #{dpi.to_s} #{pdf} -depth 16 #{tmp_image} `
   end
 
   def convert_image_to_txt(volpage)

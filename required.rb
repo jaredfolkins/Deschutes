@@ -1,4 +1,4 @@
-require `gem which memprof/signal`.chomp
+#require `gem which memprof/signal`.chomp
 
 require 'rubygems'
 require 'bundler/setup'
@@ -14,14 +14,14 @@ require 'chronic'
 require 'choice'
 
 # required files
-require 'lib/dbconnection'
-require 'lib/bot'
-require 'lib/storage'
-require 'lib/document'
-require 'lib/mortgage_make_reference'
-require 'lib/mortgage_deed'
-require 'lib/default_sale'
-require 'lib/convert'
-require 'lib/bendmaps'
-require 'lib/dial_record'
+require './lib/dbconnection'
+require './lib/bot'
+require './lib/storage'
+require './lib/document'
+require './lib/mortgage_make_reference'
+require './lib/mortgage_deed'
+require './lib/default_sale'
+require './lib/convert'
+require './lib/bendmaps'
+require './lib/dial_record'
 
