@@ -1,48 +1,53 @@
 DeschutesCounty
-Copyright Jared Folkins 2011
+Copyright Jared Folkins 2011-2026
 
 Description:
 
-  This is a web scraping program I wrote to mine the
-  deschutes county website public foreclosure records.
-  I use this data to determine how many foreclosures
-  are coming to market and understand better buying
+  This is a web scraping program written to mine the
+  Deschutes County website public foreclosure records.
+  The collected data is used to track how many foreclosures
+  are coming to market and to better understand buying
   opportunities.
+
+2026 Note:
+
+  This README was refreshed in 2026 for clarity. Command-line
+  behavior remains the same, and examples below continue to work.
 
 Options:
 
-  --page=PAGE                  Crawl a specific page's tree. PAGE takes precedence over SKIP. Also, error will occur if YEAR is set.
+  --page=PAGE                  Crawl a specific page's tree. PAGE takes precedence over SKIP. An error occurs if YEAR is also set.
   --skip=SKIP                  Skip forward a certain number of pages on the search results page.
-  --year=YEAR                  Crawl through documents based by year.
-  --limit=LIMIT                Limit the total number of search result pages to crawl. (primary used to refresh the dataset without having to crawl the whole site)
+  --year=YEAR                  Crawl documents by year.
+  --limit=LIMIT                Limit the total number of search result pages to crawl (primarily used to refresh the dataset without crawling the full archive).
   --trace=TRACE                Enable Memprof to profile code.
 
 Examples:
 
-  $ruby worker_bot.rb -h
+  $ ruby worker_bot.rb -h
 
-Desciptions:
+Descriptions:
 
---page: will go to the page with instrument_id 920850
+--page: go to the page with instrument_id 920850
 
   $ ruby worker_bot.rb --page 920850
 
---skip: will skip the first 15 pages of the search result
+--skip: skip the first 15 pages of search results
 
   $ ruby worker_bot.rb --skip 15
 
---year: only crawl the records for 2006
+--year: only crawl records for 2006
 
   $ ruby worker_bot.rb --year 2006
 
---limit: only crawl N number of search result pages 
+--limit: only crawl N search result pages
 
-  $ ruby worker_bot.rb --year 2006
+  $ ruby worker_bot.rb --limit 10
 
 --trace: enable memprof
 
   $ ruby worker_bot.rb --trace true
 
-Mix and Match: search only the year 2001 and skip 5 pages
+Mix and Match: search only year 2001 and skip 5 pages
 
   $ ruby worker_bot.rb --year 2001 --skip 5
